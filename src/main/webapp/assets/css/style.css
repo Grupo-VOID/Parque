@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+.secciones{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.tarjeta{
+    margin: 30px auto auto auto;
+}
+
+.fit-image{
+    width: 100%;
+    object-fit: cover;
+    height: 300px;
+}
+.carousel{
+    padding-top: 1cm;
+}
