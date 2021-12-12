@@ -9,9 +9,8 @@ import utilidades.Crypt;
 
 public class Usuario {
 
-	private int id;
-	private String nombreDeUsuario;
-	private String contraseña;
+	private Integer id;
+	private String nombreDeUsuario, contraseña;
 	private String tematicaFavorita;
 	private double monedasDisponibles;
 	private double tiempoDisponible;
@@ -19,12 +18,27 @@ public class Usuario {
 	private ArrayList<Atraccion> listaAtracciones = new ArrayList<Atraccion>();
 	private boolean administrador;
 
-	public Usuario(int id, String nombre, String contraseña, String tematica, double monedas, double tiempo,
+	//Usuario nuevo
+	public Usuario(String nombre, String contraseña, String tematica, double monedas, double tiempo,
+			boolean esAdmin) {
+		this.id = null;
+		this.nombreDeUsuario = nombre;
+		this.contraseña = Crypt.hash(contraseña);
+		this.tematicaFavorita = tematica;
+		this.monedasDisponibles = monedas;
+		this.tiempoDisponible = tiempo;
+		this.itinerarioUsuario = new Itinerario();
+		this.setAdministrador(esAdmin);
+	}
+	
+	//Usuario en la BdD
+	//Agregar temática al constructor
+	public Usuario(int id, String nombre, String contraseña, double monedas, double tiempo,
 			boolean esAdmin) {
 		this.id = id;
 		this.nombreDeUsuario = nombre;
 		this.contraseña = contraseña;
-		this.tematicaFavorita = tematica;
+		this.tematicaFavorita = null;
 		this.monedasDisponibles = monedas;
 		this.tiempoDisponible = tiempo;
 		this.itinerarioUsuario = new Itinerario();
@@ -76,9 +90,8 @@ public class Usuario {
 		return false;
 	}
 
-	public boolean chequearContraseña(String contraseña) {
-		// this.password en realidad es el hash del password
-		return Crypt.match(contraseña, this.contraseña);
+	public boolean checkPassword(String password) {
+		return Crypt.match(password, this.contraseña);
 	}
 
 	public boolean isAdministrador() {

@@ -87,6 +87,26 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
+	@Override
+	public Usuario findByUsername(String username) {
+		try {
+			String sql = "SELECT * FROM usuarios WHERE username = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, username);
+			ResultSet resultados = statement.executeQuery();
+
+			Usuario usuario = null;
+
+			if (resultados.next()) {
+				usuario = toUsuario(resultados);
+			}
+			return usuario;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
 
 //	public int encontrarIdUsuario(Usuario usuario) {
 //		try {
@@ -111,12 +131,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 		int id = resultados.getInt("id_usuario");
 		String nombre = resultados.getString("nombre_usuario");
-		String contraseña = resultados.getString("contraseña");
-		String tematica = resultados.getString("nombre_tematica");
+		String contraseña = resultados.getString("password");
+		//String tematica = resultados.getString("nombre_tematica");
 		int dinero = resultados.getInt("dinero_disponible");
 		double tiempo = resultados.getInt("tiempo_disponible");
-		boolean administrador = resultados.getBoolean("es_Admin");
-		Usuario usuario = new Usuario(id, nombre, contraseña, tematica, dinero, tiempo, administrador);
+		boolean administrador = resultados.getBoolean("admin");
+		//Agregar tematica a constructor de usuario
+		Usuario usuario = new Usuario(id, nombre, contraseña, dinero, tiempo, administrador);
 		return usuario;
 	}
 }
