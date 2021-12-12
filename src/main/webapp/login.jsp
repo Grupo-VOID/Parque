@@ -1,4 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,7 +14,11 @@
     <link rel="stylesheet" href="./assets/css/login.css">
     <title>Iniciar sesion en VOID</title>
 
-    <link rel="shortcut icon" href="/TrabajoPractico-Capitulo-Final/assets/void1.ico" />
+    <link rel="shortcut icon" href="/Parque/assets/void1.ico" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+    		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+    		crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,13 +29,13 @@
     <nav></nav>
 
     <section class="login">
-        <p>Bienvenido/a, acceda al sistema de atracciones</p>
+        <h1 style="padding-bottom: 1cm">Bienvenido/a, acceso al sistema de atracciones</h1>
         <div class="login_box">
             <form action="login" method="post" class="login_form">
 
                 <input type="text" class="input" name="username" placeholder="Usuario" required
                     aria-required="true">
-                <input type="password" class="input" name="password" placeholder="Contrasenia" required
+                <input type="password" class="input" name="password" placeholder="Contraseña" required
                     aria-required="true">
 
                 <div class="submit">
@@ -45,7 +51,7 @@
                 </div>
                 <div class="login_container">
                     <a href="visitors.jsp">Entrar como visitante</a>
-                    <p class="new_user">�No tienes una cuenta? <a href="registro.jsp">Registrate</a>
+                    <p class="new_user">¿No tienes una cuenta? <a href="views/usuarios/registro.jsp">Registrate</a>
                     </p>
                 </div>
 
@@ -53,17 +59,10 @@
             </form>
         </div>
     </section>
-
-
-
     <footer class="footer">
         <a href=""></a>
         <a href=""></a>
         <a href=""></a>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 </body>
-
 </html>
