@@ -32,13 +32,11 @@ public class Usuario {
 	}
 	
 	//Usuario en la BdD
-	//Agregar temática al constructor
-	public Usuario(int id, String nombre, String contraseña, double monedas, double tiempo,
-			boolean esAdmin) {
+	public Usuario(int id, String nombre, String contraseña, String tematica, double monedas, double tiempo, boolean esAdmin) {
 		this.id = id;
 		this.nombreDeUsuario = nombre;
 		this.contraseña = contraseña;
-		this.tematicaFavorita = null;
+		this.tematicaFavorita = tematica;
 		this.monedasDisponibles = monedas;
 		this.tiempoDisponible = tiempo;
 		this.itinerarioUsuario = new Itinerario();
