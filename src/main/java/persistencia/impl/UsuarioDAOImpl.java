@@ -132,12 +132,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		int id = resultados.getInt("id_usuario");
 		String nombre = resultados.getString("nombre_usuario");
 		String contraseña = resultados.getString("password");
-		//String tematica = resultados.getString("nombre_tematica");
+		String tematica = resultados.getString("nombre_tematica");
 		int dinero = resultados.getInt("dinero_disponible");
 		double tiempo = resultados.getInt("tiempo_disponible");
 		boolean administrador = resultados.getBoolean("admin");
-		//Agregar tematica a constructor de usuario
-		Usuario usuario = new Usuario(id, nombre, contraseña, dinero, tiempo, administrador);
+		Usuario usuario = new Usuario(id, nombre, contraseña,tematica, dinero, tiempo, administrador);
 		return usuario;
 	}
 }
