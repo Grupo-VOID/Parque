@@ -23,4 +23,17 @@ public class ServiciosDAO {
 		}
 	}
 
+	public String obtenerNombreTematica(int idTematica) {
+		try {
+			String sql = "SELECT nombre_tematica FROM tematicas_atracciones WHERE id_tematica  ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, idTematica);
+			ResultSet resultados = statement.executeQuery();
+			return resultados.getString("nombre_tematica");
+			
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
 }
