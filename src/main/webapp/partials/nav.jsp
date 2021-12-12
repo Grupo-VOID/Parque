@@ -19,11 +19,19 @@
                             <a class="nav-link" href="#">Pricing</a>
                         </li>
                     </ul>
+                    <c:choose>
+                        <c:when test="${usuario != null}">
+                            <a href="logout" class="btn btn-primary" role="button">Logout</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="login.jsp" class="btn btn-primary" role="button">Login</a>
+                        </c:otherwise>
+                    </c:choose>
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <c:out value="${user.username}"></c:out>
+                                <c:out value="${usuario.nombre}"></c:out>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#">Monedas disponibles</a>
