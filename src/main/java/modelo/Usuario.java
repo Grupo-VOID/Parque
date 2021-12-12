@@ -9,45 +9,52 @@ import utilidades.Crypt;
 
 public class Usuario {
 
-	private Integer id;
-	private String nombreDeUsuario, contraseña;
-	private String tematicaFavorita;
+	private int id;
+	private String username;
+	private String password;
+	private String nombre;
+	private TipoAtraccion tematicaFavorita;
 	private double monedasDisponibles;
 	private double tiempoDisponible;
+	private boolean admin;
 	protected Itinerario itinerarioUsuario;
 	private ArrayList<Atraccion> listaAtracciones = new ArrayList<Atraccion>();
-	private boolean administrador;
 
 	//Usuario nuevo
-	public Usuario(String nombre, String contraseña, String tematica, double monedas, double tiempo,
-			boolean esAdmin) {
-		this.id = null;
-		this.nombreDeUsuario = nombre;
-		this.contraseña = Crypt.hash(contraseña);
+	public Usuario(String username, String password, String nombre, TipoAtraccion tematica, double monedas, double tiempo, boolean admin) {
+		this.id = 0;
+		this.username = username;
+		this.password = Crypt.hash(password);
+		this.nombre = nombre;
 		this.tematicaFavorita = tematica;
 		this.monedasDisponibles = monedas;
 		this.tiempoDisponible = tiempo;
+		this.admin = admin;
 		this.itinerarioUsuario = new Itinerario();
-		this.setAdministrador(esAdmin);
 	}
 	
 	//Usuario en la BdD
-	public Usuario(int id, String nombre, String contraseña, String tematica, double monedas, double tiempo, boolean esAdmin) {
+	public Usuario(int id, String username, String password, String nombre, TipoAtraccion tematica, double monedas, double tiempo, boolean admin) {
 		this.id = id;
-		this.nombreDeUsuario = nombre;
-		this.contraseña = contraseña;
+		this.username = username;
+		this.password = password;
+		this.nombre = nombre;
 		this.tematicaFavorita = tematica;
 		this.monedasDisponibles = monedas;
 		this.tiempoDisponible = tiempo;
+		this.admin = admin;
 		this.itinerarioUsuario = new Itinerario();
-		this.setAdministrador(esAdmin);
 	}
 
 	public String getNombre() {
-		return nombreDeUsuario;
+		return nombre;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
-	public String getTematica() {
+	public TipoAtraccion getTematica() {
 		return tematicaFavorita;
 	}
 
@@ -57,6 +64,14 @@ public class Usuario {
 
 	public double getTiempoDisponible() {
 		return tiempoDisponible;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public String getPassword() {
+		return password;
 	}
 
 	public ArrayList<Atraccion> getListaAtracciones() {
@@ -81,7 +96,11 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return this.nombreDeUsuario + this.tiempoDisponible;
+		return this.nombre + this.tiempoDisponible;
+	}
+	
+	public boolean esAdministrador() {
+		return this.admin;
 	}
 
 	public boolean isNull() {
@@ -89,18 +108,41 @@ public class Usuario {
 	}
 
 	public boolean checkPassword(String password) {
-		return Crypt.match(password, this.contraseña);
+		return Crypt.match(password, this.password);
 	}
 
-	public boolean isAdministrador() {
-		return administrador;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public void setAdministrador(boolean administrador) {
-		this.administrador = administrador;
+	public void setTematicaFavorita(TipoAtraccion tematicaFavorita) {
+		this.tematicaFavorita = tematicaFavorita;
 	}
 
-	public int getId() {
-		return id;
+	public void setMonedasDisponibles(double monedasDisponibles) {
+		this.monedasDisponibles = monedasDisponibles;
 	}
+
+	public void setTiempoDisponible(double tiempoDisponible) {
+		this.tiempoDisponible = tiempoDisponible;
+	}
+	
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public void setPassword(String password) {
+		this.password = Crypt.hash(password);
+	}
+	
+	public void setId(int id) {
+		if(this.id == 0) {
+			this.id = id;
+		}
+	}
+
 }
