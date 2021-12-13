@@ -32,11 +32,9 @@ public class LoginServlet extends HttpServlet implements Servlet {
 		
 		if (user != null) {
 			req.getSession().setAttribute("usuario", user);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/index2.jsp");
-			dispatcher.forward(req, resp);
+			resp.sendRedirect("index.jsp");
 		} else {
-			req.setAttribute("flash", "Error al iniciar sesión. Comprueba el usuario y la contraseña.");
-			
+			req.setAttribute("flash", "Error al iniciar sesion. Comprueba el usuario y la contrase�a.");
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(req, resp);
 		}

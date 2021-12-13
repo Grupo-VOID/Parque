@@ -47,7 +47,7 @@
                             </p>
                         </div>
                     </c:if>
-                    <a class="forgot_password" href="#">No recuerdo mi contrasenia</a>
+                    <a class="forgot_password" href="#">No recuerdo mi contraseña</a>
                 </div>
                 <div class="login_container">
                     <a href="visitors.jsp">Entrar como visitante</a>
