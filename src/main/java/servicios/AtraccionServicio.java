@@ -18,10 +18,9 @@ public class AtraccionServicio {
 		return DAOFactory.getAtraccionDAO().findAll();
 	}
 
-	public Atraccion crear(String nombre, TipoAtraccion tematica, double costo, double duracion, int cupo) {
+	public Atraccion crear(String nombre, TipoAtraccion tematica, double costo, double duracion, int cupo, String descripcion, String imagen) {
 
-		Atraccion atraccion = new Atraccion(this.obtenerUltimoIDAtraccion() + 1, nombre, tematica, costo, duracion,
-				cupo);
+		Atraccion atraccion = new Atraccion(this.obtenerUltimoIDAtraccion() + 1, nombre, tematica, costo, duracion, cupo, descripcion, imagen);
 
 		if (atraccion.esValida()) {
 			AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
@@ -33,7 +32,7 @@ public class AtraccionServicio {
 	}
 
 	public Atraccion update(Integer id, String nombre, TipoAtraccion tematica, double costo, double duracion,
-			int cupo) {
+			int cupo, String descripcion, String imagen) {
 
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		Atraccion atraccion = atraccionDAO.buscarPorId(id);
@@ -43,6 +42,8 @@ public class AtraccionServicio {
 		atraccion.setCosto(costo);
 		atraccion.setDuracion(duracion);
 		atraccion.setCupoMaximo(cupo);
+		atraccion.setDescripcion(descripcion);
+		atraccion.setImagen(imagen);
 
 		if (atraccion.esValida()) {
 			atraccionDAO.updateAtraccion(atraccion);

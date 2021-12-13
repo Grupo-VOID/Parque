@@ -16,16 +16,20 @@ public class Atraccion implements Adquirible {
 	private double duracion;
 	private int cupo;
 	private int lugaresOcupados = 0;
+	private String descripcion;
+	private String imagen;
 	
 	private Map<String, String> errores;
 
-	public Atraccion(int id, String nombre, TipoAtraccion tematica, double costo, double duracion, int cupo) {
+	public Atraccion(int id, String nombre, TipoAtraccion tematica, double costo, double duracion, int cupo, String descripcion, String imagen) {
 		this.ID = id;
 		this.nombre = nombre;
 		this.tematica = tematica;
 		this.costo = costo;
 		this.duracion = duracion;
 		this.cupo = cupo;
+		this.descripcion = descripcion;
+		this.imagen = imagen;
 	}
 	
 	public boolean esValida() {
@@ -113,6 +117,22 @@ public class Atraccion implements Adquirible {
 
 	public void setCupoMaximo(int cupoMaximo) {
 		this.cupo = cupoMaximo;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 	@Override

@@ -24,23 +24,23 @@ public class PromocionServicio {
 	}
 
 	public Promocion crear(String tipoPromocion, TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2,
-			double parametro) {
+			double parametro, String descripcion, String imagen) {
 
 		Promocion promocion;
 
 		if (tipoPromocion == "ABSOLUTA") {
 			promocion = new PromocionAbsoluta(this.obtenerUltimoIDPromocion() + 1, tematica, atraccion1, atraccion2,
-					parametro);
+					parametro, descripcion, imagen);
 		}
 		if (tipoPromocion == "PORCENTUAL") {
 			promocion = new PromocionPorcentual(this.obtenerUltimoIDPromocion() + 1, tematica, atraccion1, atraccion2,
-					parametro);
+					parametro, descripcion, imagen);
 		} else {
 			AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 			int id = (int) parametro;
 			Atraccion atraccion3 = atraccionDAO.buscarPorId(id);
 			promocion = new PromocionAxB(this.obtenerUltimoIDPromocion() + 1, tematica, atraccion2, atraccion2,
-					atraccion3);
+					atraccion3, descripcion, imagen);
 		}
 
 		if (promocion.esValida()) {
@@ -53,7 +53,7 @@ public class PromocionServicio {
 	}
 
 	public Promocion update(int id, String tipoPromocion, TipoAtraccion tematica, Atraccion atraccion1,
-			Atraccion atraccion2, double parametro) {
+			Atraccion atraccion2, double parametro, String descripcion, String imagen) {
 
 		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
 		Promocion promocion = promocionDAO.buscarPorId(id);
@@ -63,12 +63,16 @@ public class PromocionServicio {
 			promocionAbsoluta.setAtraccionesIncluidas(atraccion1, atraccion2);
 			promocionAbsoluta.setTematica(tematica);
 			promocionAbsoluta.setDescuento(parametro);
+			promocionAbsoluta.setDescripcion(descripcion);
+			promocionAbsoluta.setImagen(imagen);
 		}
 		if (tipoPromocion == "PORCENTUAL") {
 			PromocionPorcentual promocionPorcentual = (PromocionPorcentual) promocion;
 			promocionPorcentual.setAtraccionesIncluidas(atraccion1, atraccion2);
 			promocionPorcentual.setTematica(tematica);
 			promocionPorcentual.setPorcentajeDescuento(parametro);
+			promocionPorcentual.setDescripcion(descripcion);
+			promocionPorcentual.setImagen(imagen);
 		} else {
 			AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 			int idAtraccion = (int) parametro;

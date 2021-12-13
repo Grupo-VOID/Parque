@@ -9,13 +9,17 @@ public class PromocionAbsoluta extends Promocion {
 	private double descuento = 0;
 	private Atraccion atraccionUno;
 	private Atraccion atraccionDos;
+	private String descripcion;
+	private String imagen;
 
-	public PromocionAbsoluta(int id, TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, double descuento) {
+	public PromocionAbsoluta(int id, TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, double descuento, String descripcion, String imagen) {
 		super(tematica);
 		this.id = id;
 		this.atraccionUno = atraccion1;
 		this.atraccionDos = atraccion2;
 		this.descuento = descuento;
+		this.descripcion = descripcion;
+		this.imagen = imagen;
 	}
 
 	@Override
@@ -84,5 +88,21 @@ public class PromocionAbsoluta extends Promocion {
 	
 	public boolean esValida() {
 		return( this.atraccionUno.esValida() && this.atraccionDos.esValida() );
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 }

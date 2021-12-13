@@ -40,11 +40,13 @@ public class CrearAtraccionServlet extends HttpServlet {
 		Double costo = Double.parseDouble(req.getParameter("costo"));
 		Double duracion = Double.parseDouble(req.getParameter("duracion"));
 		int cupo = Integer.parseInt(req.getParameter("cupo"));
+		String descripcion = req.getParameter("descripcion");
+		String imagen = req.getParameter("imagen");
 		
 		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
 		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(tipoAtraccion);
 
-		Atraccion atraccion = atraccionServicio.crear(nombre, tematica, costo, duracion, cupo);
+		Atraccion atraccion = atraccionServicio.crear(nombre, tematica, costo, duracion, cupo, descripcion, imagen);
 		if (atraccion.esValida()) {
 			resp.sendRedirect("/parque/atraccion/index.do");
 		} else {

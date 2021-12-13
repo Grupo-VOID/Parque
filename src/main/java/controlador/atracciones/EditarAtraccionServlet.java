@@ -46,11 +46,13 @@ public class EditarAtraccionServlet extends HttpServlet {
 		// Integer cost = req.getParameter("cost").trim() == "" ? null : Integer.parseInt(req.getParameter("cost"));
 		Double duracion = Double.parseDouble(req.getParameter("duracion"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
+		String descripcion = req.getParameter("descripcion");
+		String imagen = req.getParameter("imagen");
 		
 		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
 		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(tipoAtraccion);
 
-		Atraccion atraccion = atraccionServicio.update(id, nombre, tematica, costo, duracion, cupo);
+		Atraccion atraccion = atraccionServicio.update(id, nombre, tematica, costo, duracion, cupo, descripcion, imagen);
 
 		if (atraccion.esValida()) {
 			resp.sendRedirect("/parque/atraccion/index.do");

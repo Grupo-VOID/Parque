@@ -8,14 +8,18 @@ public class PromocionPorcentual extends Promocion {
 	private int id;
 	private double porcentajeDescuento = 0;
 	private Atraccion atraccionUno, atraccionDos;
+	private String descripcion;
+	private String imagen;
 
 	public PromocionPorcentual(int id, TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2,
-			double porcentajeDescuento) {
+			double porcentajeDescuento, String descripcion, String imagen) {
 		super(tematica);
 		this.id = id;
 		this.atraccionUno = atraccion1;
 		this.atraccionDos = atraccion2;
 		this.porcentajeDescuento = porcentajeDescuento;
+		this.descripcion = descripcion;
+		this.imagen = imagen;
 	}
 
 	@Override
@@ -86,5 +90,21 @@ public class PromocionPorcentual extends Promocion {
 	
 	public boolean esValida() {
 		return( this.atraccionUno.esValida() && this.atraccionDos.esValida() );
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 }

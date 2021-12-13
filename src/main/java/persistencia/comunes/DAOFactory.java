@@ -11,7 +11,6 @@ import persistencia.impl.ItinerarioDAOImpl;
 import persistencia.impl.PromocionDAOImpl;
 import persistencia.impl.TipoAtraccionDAOImpl;
 import persistencia.impl.UsuarioDAOImpl;
-import servicios.ServiciosDAO;
 
 public class DAOFactory {
 
@@ -29,10 +28,6 @@ public class DAOFactory {
 
 	public static ItinerarioDAO getItinerarioDAO() {
 		return new ItinerarioDAOImpl();
-	}
-	
-	public static ServiciosDAO getServiciosDAO() {
-		return new ServiciosDAO();
 	}
 	
 	public static TipoAtraccionDAO getTipoAtraccionDAO() {
