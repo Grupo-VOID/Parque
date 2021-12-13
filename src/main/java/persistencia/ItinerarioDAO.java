@@ -14,4 +14,6 @@ public interface ItinerarioDAO extends GenericDAO<Itinerario> {
 	public int insertAtraccion(Usuario usuario, Adquirible atraccion);
 
 	public List<Atraccion> atraccionesUsuario(int id);
+	
+	public List<Adquirible> obtenerAdquiribles(int idUsuario);
 }

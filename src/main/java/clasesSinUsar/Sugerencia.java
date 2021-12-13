@@ -4,10 +4,11 @@ import java.util.Comparator;
 
 import modelo.Adquirible;
 import modelo.Atraccion;
+import modelo.TipoAtraccion;
 import modelo.Usuario;
 
 public class Sugerencia implements Comparator<Adquirible> {
-	private String atraccionFavorita;
+	private TipoAtraccion atraccionFavorita;
 
 	public Sugerencia(Usuario usuarioRef) {
 		atraccionFavorita = usuarioRef.getTematica();

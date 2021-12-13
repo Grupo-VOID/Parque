@@ -2,16 +2,19 @@ package persistencia;
 
 import java.util.List;
 
+import modelo.TipoAtraccion;
 import persistencia.comunes.GenericDAO;
 
 
-public interface TipoAtraccionDAO extends GenericDAO<String> {
+public interface TipoAtraccionDAO extends GenericDAO<TipoAtraccion> {
 
-	public List<String> findAll();
+	public List<TipoAtraccion> findAll();
 
-	public int agregarTipoAtraccion(String nombre);
+	public int agregarTipoAtraccion(TipoAtraccion tipoAtraccion);
 
-	public int eliminarTipoAtraccion(String nombre);
+	public int updateTipoAtraccion(TipoAtraccion tipoAtraccion);
+	
+	public int eliminarTipoAtraccion(TipoAtraccion tipoAtraccion);
 
-	public int encontrarId(String nombre);
+	public TipoAtraccion encontrarTipoAtraccion(String nombre);
 }
