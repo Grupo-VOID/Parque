@@ -10,20 +10,21 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
+import modelo.Usuario;
 
-@WebFilter("*.do")
+@WebFilter(urlPatterns = "*.do")
 public class LoggedFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		String username = (String)((HttpServletRequest) request).getSession().getAttribute("username");
+		Usuario username = (Usuario)((HttpServletRequest) request).getSession().getAttribute("username");
 
 		if (username != null) {
 			chain.doFilter(request, response);
 		} else {
-			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("login.jsp");
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
