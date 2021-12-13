@@ -21,19 +21,20 @@
 						</c:if>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <c:out value="${usuario.nombre}"></c:out>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Monedas disponibles: <c:out value="${usuario.monedasDisponibles}"></c:out></a>
-                                <a class="dropdown-item" href="#">Tiempo Disponible: <c:out value="${usuario.tiempoDisponible}"></c:out></a>
-                            </ul>
-                        </li>
+                        
                     </ul>
                     <c:choose>
                         <c:when test="${usuario != null}">
+                        	<li class="nav-item dropdown">
+	                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+    	                            data-bs-toggle="dropdown" aria-expanded="false">
+        	                        <c:out value="${usuario.nombre}"></c:out>
+            	                </a>
+                	            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    	            <a class="dropdown-item" href="#">Monedas disponibles: <c:out value="${usuario.monedasDisponibles}"></c:out></a>
+                        	        <a class="dropdown-item" href="#">Tiempo Disponible: <c:out value="${usuario.tiempoDisponible}"></c:out></a>
+                            	</ul>
+                        	</li>
                             <a href="logout" class="btn btn-primary" role="button">Logout</a>
                         </c:when>
                         <c:otherwise>
