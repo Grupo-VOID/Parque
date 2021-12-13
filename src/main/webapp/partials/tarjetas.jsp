@@ -1,7 +1,7 @@
 <div class="row card-group">
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/breakingBad.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/breakingBad.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Breaking Bad</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -25,7 +25,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/breakingBad.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/breakingBad.jpeg"
                                                         class="img-responsive fit-image" alt="breaking Bad">
 
                                                 </div>
@@ -67,7 +67,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/theOffice.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/theOffice.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">The Office</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -91,7 +91,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/theOffice.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/theOffice.jpeg"
                                                         class="img-responsive fit-image" alt="breaking Bad">
 
                                                 </div>
@@ -127,7 +127,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/glee.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/glee.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Glee</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -151,7 +151,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/glee.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/glee.jpeg"
                                                         class="img-responsive fit-image" alt="breaking Bad">
 
                                                 </div>
@@ -194,7 +194,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/betterCallSaul.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/betterCallSaul.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Better Call Saul</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -218,7 +218,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/betterCallSaul.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/betterCallSaul.jpeg"
                                                         class="img-responsive fit-image" alt="breaking Bad">
 
                                                 </div>
@@ -264,7 +264,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/elMarginal.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/elMarginal.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">El Marginal</h5>
                         <p class="card-text">Mientras investiga un secuestro, un expolicía se infiltra en una prisión y
@@ -289,7 +289,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/elMarginal.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/elMarginal.jpeg"
                                                         class="img-responsive fit-image" alt="breaking Bad">
 
                                                 </div>
@@ -319,7 +319,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/okupas.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/okupas.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Okupas</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -343,7 +343,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/okupas.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/okupas.jpeg"
                                                         class="img-responsive fit-image" alt="...">
 
                                                 </div>
@@ -375,7 +375,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/elReino.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/elReino.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">El Reino</h5>
                         <p class="card-text">Durante el cierre de una campaña electoral, un candidato es asesinado y
@@ -400,7 +400,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/elReino.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/elReino.jpeg"
                                                         class="img-responsive fit-image" alt="...">
 
                                                 </div>
@@ -428,7 +428,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/modernFamily.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/modernFamily.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Modern Family</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -452,7 +452,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/modernFamily.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/modernFamily.jpeg"
                                                         class="img-responsive fit-image" alt="...">
 
                                                 </div>
@@ -498,7 +498,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/peakyBlinders.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/peakyBlinders.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Peaky Blinders</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -522,7 +522,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/peakyBlinders.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/peakyBlinders.jpeg"
                                                         class="img-responsive fit-image" alt="...">
 
                                                 </div>
@@ -552,7 +552,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/theBlacklist.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/theBlacklist.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">The Blacklist</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -576,7 +576,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/theBlacklist.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/theBlacklist.jpeg"
                                                         class="img-responsive fit-image" alt="...">
 
                                                 </div>
@@ -617,7 +617,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/lupin.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/lupin.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Lupin</h5>
                         <p class="card-text">Basada en la historia de Arsène Lupin, el ladrón Assane Diop se propone
@@ -642,7 +642,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/lupin.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/lupin.jpeg"
                                                         class="img-responsive fit-image" alt="...">
 
                                                 </div>
@@ -670,7 +670,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/casaPapel.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/casaPapel.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">La Casa de Papel</h5>
                         <p class="card-text">Una banda organizada de ladrones se propone cometer el atraco del siglo en
@@ -695,7 +695,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/casaPapel.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/casaPapel.jpeg"
                                                         class="img-responsive fit-image" alt="...">
 
                                                 </div>
@@ -725,7 +725,7 @@
             </div>
             <div class="col-4 tarjeta">
                 <div class="card tarjeta" style="width: 18rem;">
-                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/dark.jpeg" class="card-img-top" alt="...">
+                    <img src="/Parque/assets/images/atracciones/dark.jpeg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Dark</h5>
                         <p class="card-text">La desaparición de dos niños muestra los vínculos entre cuatro familias y
@@ -750,7 +750,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img src="/TrabajoPractico-Capitulo-Final/assets/images/atracciones/dark.jpeg"
+                                                    <img src="/Parque/assets/images/atracciones/dark.jpeg"
                                                         class="img-responsive fit-image" alt="...">
 
                                                 </div>
