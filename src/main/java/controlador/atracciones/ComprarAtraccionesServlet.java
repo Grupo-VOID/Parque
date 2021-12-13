@@ -14,7 +14,7 @@ import persistencia.comunes.DAOFactory;
 import servicios.ComprarAtraccionServicio;
 
 @WebServlet("/atracciones/comprar.do")
-public class ComprarAtraccionServlet extends HttpServlet {
+public class ComprarAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
 	private ComprarAtraccionServicio comprarAtraccionesServicio;

@@ -2,7 +2,6 @@ package controlador.atracciones;
 
 import java.io.IOException;
 import java.util.List;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
@@ -14,7 +13,7 @@ import modelo.Atraccion;
 import servicios.AtraccionServicio;
 
 @WebServlet("/views/atracciones/index.do")
-public class ListAttractionsServlet extends HttpServlet implements Servlet {
+public class ListarAtraccionesServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -8346640902238722429L;
 	private AtraccionServicio atraccionServicio;
@@ -28,9 +27,9 @@ public class ListAttractionsServlet extends HttpServlet implements Servlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Atraccion> atraccion = atraccionServicio.list();
-		req.setAttribute("atraccion", atraccion);
+		req.setAttribute("atracciones", atraccion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/atraccion/index.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/atracciones/index.jsp");
 		dispatcher.forward(req, resp);
 
 	}

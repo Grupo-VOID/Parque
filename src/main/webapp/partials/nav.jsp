@@ -10,18 +10,15 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/Parque/index.jsp">Home</a>
+                            <a class="nav-link active" href="/Parque/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Parque/views/atracciones/index.do">Atracciones</a>
+                            <a class="nav-link active" href="/Parque/views/atracciones/index.do">Atracciones</a>
                         </li>
                         <c:if test="${usuario.esAdministrador()}">
 							<li class="nav-item"><a class="nav-link active"
 								aria-current="page" href="/Parque/users/index.do">Usuarios</a></li>
 						</c:if>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Usuarios</a>
-                        </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">

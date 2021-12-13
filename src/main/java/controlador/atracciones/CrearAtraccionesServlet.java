@@ -15,7 +15,7 @@ import persistencia.comunes.DAOFactory;
 import servicios.AtraccionServicio;
 
 @WebServlet("/atraccion/crear.do")
-public class CrearAtraccionServlet extends HttpServlet {
+public class CrearAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
 	private AtraccionServicio atraccionServicio;

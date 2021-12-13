@@ -1,9 +1,7 @@
 package controlador.sesion;
 
 import java.io.IOException;
-
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,7 +11,7 @@ import modelo.Usuario;
 import servicios.LoginService;
 
 @WebServlet("/login")
-public class LoginServlet extends HttpServlet implements Servlet {
+public class LoginServlet extends HttpServlet{
 	private static final long serialVersionUID = -2299770028212892712L;
 	private LoginService loginService;
 	

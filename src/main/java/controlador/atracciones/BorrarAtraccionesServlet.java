@@ -12,7 +12,7 @@ import persistencia.comunes.DAOFactory;
 import servicios.AtraccionServicio;
 
 @WebServlet("/atraccion/borrar.do")
-public class BorrarAtraccionServlet extends HttpServlet {
+public class BorrarAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1537949074766873118L;
 	private AtraccionServicio atraccionServicio;
