@@ -13,7 +13,7 @@
                             <a class="nav-link active" href="/Parque/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/Parque/views/atracciones/index.do">Atracciones</a>
+                            <a class="nav-link active" href="./views/atracciones/index.do">Atracciones</a>
                         </li>
                         <c:if test="${usuario.esAdministrador()}">
 							<li class="nav-item"><a class="nav-link active"
