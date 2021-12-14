@@ -13,7 +13,7 @@
                             <a class="nav-link active" href="/Parque/index.jsp">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="./views/atracciones/index.do">Atracciones</a>
+                            <a class="nav-link active" href="/Parque/views/atracciones/index.do">Atracciones</a>
                         </li>
                         <c:if test="${usuario.esAdministrador()}">
 							<li class="nav-item"><a class="nav-link active"
@@ -21,9 +21,7 @@
 						</c:if>
                     </ul>
                     <ul class="navbar-nav">
-                        
-                    </ul>
-                    <c:choose>
+                        <c:choose>
                         <c:when test="${usuario != null}">
                         	<li class="nav-item dropdown">
 	                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -31,8 +29,8 @@
         	                        <c:out value="${usuario.nombre}"></c:out>
             	                </a>
                 	            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    	            <a class="dropdown-item" href="#">Monedas disponibles: <c:out value="${usuario.monedasDisponibles}"></c:out></a>
-                        	        <a class="dropdown-item" href="#">Tiempo Disponible: <c:out value="${usuario.tiempoDisponible}"></c:out></a>
+                    	            <a class="dropdown-item" href="#"><i class="fas fa-coins"></i>Monedas disponibles: <c:out value="${usuario.monedasDisponibles}"></c:out></a>
+                        	        <a class="dropdown-item" href="#"><i class="fas fa-clock"></i>Tiempo Disponible: <c:out value="${usuario.tiempoDisponible}"></c:out></a>
                             	</ul>
                         	</li>
                             <a href="logout" class="btn btn-primary" role="button">Logout</a>
@@ -41,7 +39,7 @@
                             <a href="login.jsp" class="btn btn-primary" role="button">Login</a>
                         </c:otherwise>
                     </c:choose>
-                    
+                    </ul>
                 </div>
             </div>
         </nav>
