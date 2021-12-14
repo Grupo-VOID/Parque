@@ -324,6 +324,29 @@ public class PromocionDAOImpl implements PromocionDAO {
 			throw new MissingDataException(e);
 		}
 	}
+	
+	public Promocion buscarPorNombre(String nombre) {
+		try {
+			String sql = "SELECT promociones.*, group_concat(ap.id_atraccion,' ') AS lista_atracciones\r\n"
+					+ "FROM promociones\r\n"
+					+ "JOIN atracciones_promociones ap ON ap.id_promocion = promociones.id_promocion\r\n"
+					+ "WHERE promociones.nombre_promocion = ?\r\n"
+					+ "GROUP BY promociones.nombre_promocion";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombre);
+			ResultSet resultados = statement.executeQuery();
+
+			Promocion promocion = null;
+
+			if (resultados.next()) {
+				promocion = toPromocion(resultados);
+			}
+			return promocion;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
 
 // ver si este metodo lo dejamos aca o en clase aparte	
 	private int obtenerIdTipoPromocion(String tipoPromocion) {

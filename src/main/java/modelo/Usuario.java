@@ -1,6 +1,8 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import persistencia.ItinerarioDAO;
 import persistencia.UsuarioDAO;
@@ -19,6 +21,7 @@ public class Usuario {
 	private boolean admin;
 	protected Itinerario itinerarioUsuario;
 	private ArrayList<Atraccion> listaAtracciones = new ArrayList<Atraccion>();
+	private HashMap<String, String> errors;
 
 	//Usuario nuevo
 	public Usuario(String username, String password, String nombre, TipoAtraccion tematica, double monedas, double tiempo, boolean admin) {
@@ -45,7 +48,15 @@ public class Usuario {
 		this.admin = admin;
 		this.itinerarioUsuario = new Itinerario();
 	}
+	
+	public boolean chequearDinero(Adquirible adquirible) {
+		return adquirible.getCosto() <= this.getMonedasDisponibles();
+	}
 
+	public boolean chequearTiempo(Adquirible adquirible) {
+		return adquirible.getTiempo() <= this.getTiempoDisponible();
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -85,9 +96,9 @@ public class Usuario {
 		this.monedasDisponibles -= sugerencia.getCosto();
 		this.tiempoDisponible -= sugerencia.getTiempo();
 		this.itinerarioUsuario.agregarAdquirible(sugerencia, this);
-//		for (Atraccion i : sugerencia.atraccionesIncluidas()) {
-//			listaAtracciones.add(i);
-//		}
+		for (Atraccion i : sugerencia.atraccionesIncluidas()) {
+			listaAtracciones.add(i);
+		}
 		sugerencia.comprar();
 
 		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
@@ -96,9 +107,9 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return this.nombre + this.tiempoDisponible;
+		return "Usuario [id=" + id + ", username=" + username + ", password=" + password + ", admin=" + admin + "]";
 	}
-	
+
 	public boolean esAdministrador() {
 		return this.admin;
 	}
@@ -144,5 +155,26 @@ public class Usuario {
 			this.id = id;
 		}
 	}
+	
+	public boolean esValido() {
+		validar();
+		return errors.isEmpty();
+	}
+	
+	public void validar() {
+		errors = new HashMap<String, String>();
+
+		if (this.monedasDisponibles < 0) {
+			errors.put("monedasDisponibles", "No debe ser negativo");
+		}
+		if (this.tiempoDisponible < 0) {
+			errors.put("tiempoDisponible", "No debe ser negativo");
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
+	}
+	
 
 }

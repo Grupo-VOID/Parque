@@ -77,7 +77,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setInt(5, atraccion.getTematica().getId());
 			statement.setString(6, atraccion.getDescripcion());
 			statement.setString(7, atraccion.getImagen());
-			statement.setInt(8, atraccion.getID());
+			statement.setInt(8, atraccion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -92,7 +92,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, atraccion.getID());
+			statement.setInt(1, atraccion.getId());
 			int rows = statement.executeUpdate();
 			
 			return rows;
@@ -123,6 +123,28 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 		}
 	}
 
+	public Atraccion buscarPorNombre(String nombre) {
+		try {
+			String sql = "SELECT * \r\n"
+					+ "FROM atracciones \r\n"
+					+ "JOIN tematicas_atracciones ta ON ta.id_tematica = atracciones.id_tematica\r\n"
+					+ "WHERE nombre_atraccion = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, nombre);
+			ResultSet resultados = statement.executeQuery();
+
+			Atraccion atraccion = null;
+
+			if (resultados.next()) {
+				atraccion = toAtraccion(resultados);
+			}
+			return atraccion;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
 	public int encontrarIdAtraccion(Adquirible atraccion) {
 		try {
 			String sql = "SELECT * FROM atracciones WHERE nombre_atraccion = ?";

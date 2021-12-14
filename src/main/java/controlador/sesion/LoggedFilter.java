@@ -12,7 +12,8 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import modelo.Usuario;
 
-@WebFilter(urlPatterns = "*.do")
+//@WebFilter(urlPatterns = "*.do")
+@WebFilter()
 public class LoggedFilter implements Filter {
 
 	@Override

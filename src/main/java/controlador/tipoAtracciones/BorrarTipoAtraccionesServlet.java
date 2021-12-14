@@ -1,4 +1,4 @@
-package controlador.atracciones;
+package controlador.tipoAtracciones;
 
 import java.io.IOException;
 
@@ -7,33 +7,31 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import persistencia.AtraccionDAO;
+import persistencia.TipoAtraccionDAO;
 import persistencia.comunes.DAOFactory;
-import servicios.AtraccionServicio;
+import servicios.TipoAtraccionServicio;
 
-@WebServlet("/atracciones/borrar.do")
-public class BorrarAtraccionesServlet extends HttpServlet {
+@WebServlet("/tematicas/borrar.do")
+public class BorrarTipoAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1537949074766873118L;
-	private AtraccionServicio atraccionServicio;
+	private TipoAtraccionServicio tipoAtraccionServicio;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		this.atraccionServicio = new AtraccionServicio();
+		this.tipoAtraccionServicio = new TipoAtraccionServicio();
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
-		
-		AtraccionDAO atracionDAO = DAOFactory.getAtraccionDAO();
-		atracionDAO.buscarPorId(id);
 
-		atraccionServicio.borrar(atracionDAO.buscarPorId(id));
+		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
+		tipoAtraccionDAO.encontrarTipoAtraccion(id);
 
-		resp.sendRedirect("/parque/atracciones/index.do");
+		tipoAtraccionServicio.borrar(tipoAtraccionDAO.encontrarTipoAtraccion(id));
+
+		resp.sendRedirect("/parque/tematicas/index.do");
 	}
-
-
 }

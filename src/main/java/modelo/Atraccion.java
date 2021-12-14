@@ -9,7 +9,7 @@ import persistencia.AtraccionDAO;
 
 public class Atraccion implements Adquirible {
 
-	private final int ID;
+	private final int id;
 	private String nombre;
 	private TipoAtraccion tematica;
 	private double costo;
@@ -22,7 +22,7 @@ public class Atraccion implements Adquirible {
 	private Map<String, String> errores;
 
 	public Atraccion(int id, String nombre, TipoAtraccion tematica, double costo, double duracion, int cupo, String descripcion, String imagen) {
-		this.ID = id;
+		this.id = id;
 		this.nombre = nombre;
 		this.tematica = tematica;
 		this.costo = costo;
@@ -52,35 +52,39 @@ public class Atraccion implements Adquirible {
 	}
 
 	public double getCosto() {
-		return costo;
+		return this.costo;
 	}
 
 	public double getTiempo() {
-		return duracion;
+		return this.duracion;
 	}
 	
-	public int getID() {
-		return ID;
+	public int getId() {
+		return this.id;
 	}
 	
 	public TipoAtraccion getTematica() {
-		return tematica;
+		return this.tematica;
 	}
 
 	public int getCupoActual() {
-		return lugaresOcupados;
+		return this.lugaresOcupados;
 	}
 
 	public int getCupoMaximo() {
-		return cupo;
+		return this.cupo;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public boolean estaDisponible() {
 		return lugaresOcupados < cupo;
+	}
+	
+	public boolean tieneCupo(int i) {
+		return cupo >= i;
 	}
 
 	public void comprar() {

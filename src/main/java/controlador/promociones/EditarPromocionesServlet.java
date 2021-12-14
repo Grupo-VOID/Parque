@@ -1,0 +1,73 @@
+package controlador.promociones;
+
+import java.io.IOException;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import modelo.Atraccion;
+import modelo.Promocion;
+import modelo.TipoAtraccion;
+import persistencia.AtraccionDAO;
+import persistencia.TipoAtraccionDAO;
+import persistencia.comunes.DAOFactory;
+import servicios.PromocionServicio;
+
+@WebServlet("/promociones/editar.do")
+public class EditarPromocionesServlet extends HttpServlet {
+
+	private static final long serialVersionUID = 7598291131560345626L;
+	private PromocionServicio promocionServicio;
+
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		this.promocionServicio = new PromocionServicio();
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
+
+		Promocion promocion = promocionServicio.buscar(id);
+		req.setAttribute("promocion", promocion);
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones/editar.jsp");
+		dispatcher.forward(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
+		String tipoPromocion = req.getParameter("tipoPromocion");
+		String tipoAtraccion = req.getParameter("tematica");
+		String atraccionUno = req.getParameter("atraccion1");
+		String atraccionDos = req.getParameter("atraccion2");
+		// ojo que aca no se como es lo de parametro
+		Double parametro = Double.parseDouble("parametro");
+		String descripcion = req.getParameter("descripcion");
+		String imagen = req.getParameter("imagen");
+
+		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
+		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(tipoAtraccion);
+
+		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
+		Atraccion atraccion1 = atraccionDAO.buscarPorNombre(atraccionUno);
+		Atraccion atraccion2 = atraccionDAO.buscarPorNombre(atraccionDos);
+
+		Promocion promocion = promocionServicio.update(id, tipoPromocion, tematica, atraccion1, atraccion2, parametro,
+				descripcion, imagen);
+
+		if (promocion.esValida()) {
+			resp.sendRedirect("/parque/promociones/index.do");
+		} else {
+			req.setAttribute("promocion", promocion);
+
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones/editar.jsp");
+			dispatcher.forward(req, resp);
+		}
+	}
+}

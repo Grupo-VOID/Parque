@@ -13,8 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import modelo.Usuario;
 import servicios.UsuarioServicio;
 
-@WebServlet("/users/index.do")
-public class ListUsersServlet extends HttpServlet implements Servlet {
+@WebServlet("/usuarios/index.do")
+public class ListarUsuariosServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -8346640902238722429L;
 	private UsuarioServicio usuarioService;
@@ -32,7 +32,7 @@ public class ListUsersServlet extends HttpServlet implements Servlet {
 		req.setAttribute("usuarios", users);
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/views/users/index.jsp");
+				.getRequestDispatcher("/vistas/usuarios/index.jsp");
 		dispatcher.forward(req, resp);
 
 	}

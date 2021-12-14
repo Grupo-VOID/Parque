@@ -8,12 +8,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.TipoAtraccion;
 import modelo.Usuario;
+import persistencia.TipoAtraccionDAO;
+import persistencia.comunes.DAOFactory;
 import servicios.UsuarioServicio;
 
 
-@WebServlet("/users/create.do")
-public class CreateUserServlet extends HttpServlet {
+@WebServlet("/usuarios/crear.do")
+public class CrearUsuariosServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
 	private UsuarioServicio servicioUsuario;
@@ -28,26 +31,32 @@ public class CreateUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/views/users/create.jsp");
+				.getRequestDispatcher("/vistas/usuarios/crear.jsp");
 		dispatcher.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		Integer coins = Integer.parseInt(req.getParameter("coins"));
-		Double time = Double.parseDouble(req.getParameter("time"));
+		String nombre = req.getParameter("nombre");
+		String tipoAtraccion = req.getParameter("tematica");
+		Double monedas = Double.parseDouble(req.getParameter("monedasDisponibles"));
+		Double tiempo = Double.parseDouble(req.getParameter("tiempoDisponilbe"));
 
-		Usuario tmp_user = servicioUsuario.create(username, password, coins, time);
+		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
+		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(tipoAtraccion);
 		
-		if (tmp_user.isValid()) {
-			resp.sendRedirect("/turismo/users/index.do");
+		Usuario usuario = servicioUsuario.crear(username, password, nombre, tematica, monedas, tiempo, false);
+		
+		if (usuario.esValido()) {
+			resp.sendRedirect("/parque/usuarios/index.do");
 		} else {
-			req.setAttribute("tmp_user", tmp_user);
+			req.setAttribute("usuario", usuario);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/users/create.jsp");
+					.getRequestDispatcher("/vistas/usuarios/crear.jsp");
 			dispatcher.forward(req, resp);
 		}
 

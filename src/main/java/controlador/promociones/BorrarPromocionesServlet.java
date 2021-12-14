@@ -1,4 +1,4 @@
-package controlador.atracciones;
+package controlador.promociones;
 
 import java.io.IOException;
 
@@ -7,33 +7,32 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import persistencia.AtraccionDAO;
+import persistencia.PromocionDAO;
 import persistencia.comunes.DAOFactory;
-import servicios.AtraccionServicio;
+import servicios.PromocionServicio;
 
-@WebServlet("/atracciones/borrar.do")
-public class BorrarAtraccionesServlet extends HttpServlet {
+@WebServlet("/promociones/borrar.do")
+public class BorrarPromocionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1537949074766873118L;
-	private AtraccionServicio atraccionServicio;
+	private PromocionServicio promocionServicio;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		this.atraccionServicio = new AtraccionServicio();
+		this.promocionServicio = new PromocionServicio();
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
-		
-		AtraccionDAO atracionDAO = DAOFactory.getAtraccionDAO();
-		atracionDAO.buscarPorId(id);
 
-		atraccionServicio.borrar(atracionDAO.buscarPorId(id));
+		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
+		promocionDAO.buscarPorId(id);
 
-		resp.sendRedirect("/parque/atracciones/index.do");
+		promocionServicio.borrar(promocionDAO.buscarPorId(id));
+
+		resp.sendRedirect("/parque/promociones/index.do");
 	}
-
 
 }

@@ -1,7 +1,8 @@
-package controlador.atracciones;
+package controlador.promociones;
 
 import java.io.IOException;
 import java.util.List;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
@@ -9,27 +10,27 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import modelo.Atraccion;
-import servicios.AtraccionServicio;
+import modelo.Promocion;
+import servicios.PromocionServicio;
 
-@WebServlet("/vistas/atracciones/index.do")
-public class ListarAtraccionesServlet extends HttpServlet implements Servlet {
+@WebServlet("/views/promociones/index.do")
+public class ListarPromocionesServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -8346640902238722429L;
-	private AtraccionServicio atraccionServicio;
+	private PromocionServicio promocionServicio;
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		this.atraccionServicio = new AtraccionServicio();
+		this.promocionServicio = new PromocionServicio();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Atraccion> atraccion = atraccionServicio.list();
-		req.setAttribute("atraccion", atraccion);
+		List<Promocion> promocion = promocionServicio.list();
+		req.setAttribute("promocion", promocion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/atracciones/index.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones/index.jsp");
 		dispatcher.forward(req, resp);
 
 	}

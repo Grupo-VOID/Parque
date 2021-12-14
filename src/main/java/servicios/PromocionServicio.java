@@ -90,12 +90,12 @@ public class PromocionServicio {
 		return promocion;
 	}
 
-	public void delete(Promocion promocion) {
+	public void borrar(Promocion promocion) {
 		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
 		promocionDAO.eliminarPromocion(promocion);
 	}
 
-	public Promocion find(Integer id) {
+	public Promocion buscar(Integer id) {
 		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
 		return promocionDAO.buscarPorId(id);
 	}

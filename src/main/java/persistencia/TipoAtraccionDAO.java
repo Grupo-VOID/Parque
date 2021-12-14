@@ -16,5 +16,7 @@ public interface TipoAtraccionDAO extends GenericDAO<TipoAtraccion> {
 	
 	public int eliminarTipoAtraccion(TipoAtraccion tipoAtraccion);
 
+	public TipoAtraccion encontrarTipoAtraccion(int id);
+	
 	public TipoAtraccion encontrarTipoAtraccion(String nombre);
 }

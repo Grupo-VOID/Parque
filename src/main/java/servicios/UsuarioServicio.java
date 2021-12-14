@@ -2,8 +2,9 @@ package servicios;
 
 import java.util.List;
 
+import modelo.TipoAtraccion;
 import modelo.Usuario;
-import persistencia.AtraccionDAO;
+import persistencia.UsuarioDAO;
 import persistencia.comunes.DAOFactory;
 
 public class UsuarioServicio {
@@ -12,15 +13,47 @@ public class UsuarioServicio {
 		return DAOFactory.getUsuarioDAO().findAll();
 	}
 
-	public Usuario create(String username, String password, Integer coins, Double time) {
-		Usuario user = new Usuario(-1, username, password, coins, time, false);
-		user.setPassword(password);
+	public Usuario crear(String username, String password, String nombre, TipoAtraccion tematica, double monedas, double tiempo, boolean admin) {
+		Usuario usuario = new Usuario(0, username, password, nombre, tematica, monedas, tiempo, false);
+		usuario.setPassword(password);
 
-		if (user.isValid()) {
-			DAOFactory.getUsuarioDAO().agregarUsuario(user);
+		if (usuario.esValido()) {
+			UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+			usuarioDAO.agregarUsuario(usuario);
 			// XXX: si no devuelve "1", es que hubo más errores
 		}
 
-		return user;
+		return usuario;
+	}
+	
+	public Usuario update(int id, String username, String password, String nombre, TipoAtraccion tematica, double monedas, double tiempo, boolean admin) {
+
+		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+		Usuario usuario = usuarioDAO.buscarPorId(id);
+
+		usuario.setUsername(username);
+		usuario.setPassword(password);
+		usuario.setNombre(nombre);
+		usuario.setTematicaFavorita(tematica);
+		usuario.setMonedasDisponibles(monedas);
+		usuario.setTiempoDisponible(tiempo);
+		usuario.setAdmin(admin);
+	
+		if (usuario.esValido()) {
+			usuarioDAO.updateUsuario(usuario);
+			// XXX: si no devuelve "1", es que hubo más errores
+		}
+
+		return usuario;
+	}
+
+	public void borrar(Usuario usuario) {
+		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+		usuarioDAO.eliminarUsuario(usuario);
+	}
+
+	public Usuario buscar(int id) {
+		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
+		return usuarioDAO.buscarPorId(id);
 	}
 }

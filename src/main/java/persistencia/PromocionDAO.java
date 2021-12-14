@@ -15,6 +15,8 @@ public interface PromocionDAO extends GenericDAO<Promocion> {
 	public int obtenerUltimoIDPromocion();
 
 	public Promocion buscarPorId(int id);
+	
+	public Promocion buscarPorNombre(String nombre);
 
 	public int encontrarIdPromocion(Adquirible promocion);
 }

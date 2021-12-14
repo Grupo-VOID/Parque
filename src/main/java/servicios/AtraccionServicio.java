@@ -31,7 +31,7 @@ public class AtraccionServicio {
 		return atraccion;
 	}
 
-	public Atraccion update(Integer id, String nombre, TipoAtraccion tematica, double costo, double duracion,
+	public Atraccion update(int id, String nombre, TipoAtraccion tematica, double costo, double duracion,
 			int cupo, String descripcion, String imagen) {
 
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();

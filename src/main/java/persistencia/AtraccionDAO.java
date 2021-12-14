@@ -21,5 +21,7 @@ public interface AtraccionDAO extends GenericDAO<Atraccion> {
 
 	public int encontrarIdAtraccion(Adquirible atraccion);
 	
+	public Atraccion buscarPorNombre(String nombre);
+	
 	public int obtenerUltimoIDAtraccion();
 }

@@ -14,7 +14,7 @@ import persistencia.TipoAtraccionDAO;
 import persistencia.comunes.DAOFactory;
 import servicios.AtraccionServicio;
 
-@WebServlet("/atraccion/crear.do")
+@WebServlet("/atracciones/crear.do")
 public class CrearAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
@@ -29,7 +29,7 @@ public class CrearAtraccionesServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/create.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/atracciones/crear.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -39,7 +39,7 @@ public class CrearAtraccionesServlet extends HttpServlet {
 		String tipoAtraccion = req.getParameter("tematica");
 		Double costo = Double.parseDouble(req.getParameter("costo"));
 		Double duracion = Double.parseDouble(req.getParameter("duracion"));
-		int cupo = Integer.parseInt(req.getParameter("cupo"));
+		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
 		String descripcion = req.getParameter("descripcion");
 		String imagen = req.getParameter("imagen");
 		
@@ -48,12 +48,12 @@ public class CrearAtraccionesServlet extends HttpServlet {
 
 		Atraccion atraccion = atraccionServicio.crear(nombre, tematica, costo, duracion, cupo, descripcion, imagen);
 		if (atraccion.esValida()) {
-			resp.sendRedirect("/parque/atraccion/index.do");
+			resp.sendRedirect("/parque/atracciones/index.do");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/vistas/atraccion/crear.jsp");
+					.getRequestDispatcher("/vistas/atracciones/crear.jsp");
 			dispatcher.forward(req, resp);
 		}
 

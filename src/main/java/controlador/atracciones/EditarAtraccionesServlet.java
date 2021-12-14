@@ -14,7 +14,7 @@ import persistencia.TipoAtraccionDAO;
 import persistencia.comunes.DAOFactory;
 import servicios.AtraccionServicio;
 
-@WebServlet("/atraccion/editar.do")
+@WebServlet("/atracciones/editar.do")
 public class EditarAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7598291131560345626L;
@@ -33,7 +33,7 @@ public class EditarAtraccionesServlet extends HttpServlet {
 		Atraccion atraccion = atraccionServicio.buscar(id);
 		req.setAttribute("atraccion", atraccion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/attractions/edit.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/atracciones/editar.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -42,7 +42,7 @@ public class EditarAtraccionesServlet extends HttpServlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		String nombre = req.getParameter("nombre");
 		String tipoAtraccion = req.getParameter("tematica");
-		Integer costo = Integer.parseInt(req.getParameter("costo"));
+		Double costo = Double.parseDouble(req.getParameter("costo"));
 		// Integer cost = req.getParameter("cost").trim() == "" ? null : Integer.parseInt(req.getParameter("cost"));
 		Double duracion = Double.parseDouble(req.getParameter("duracion"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
@@ -55,11 +55,11 @@ public class EditarAtraccionesServlet extends HttpServlet {
 		Atraccion atraccion = atraccionServicio.update(id, nombre, tematica, costo, duracion, cupo, descripcion, imagen);
 
 		if (atraccion.esValida()) {
-			resp.sendRedirect("/parque/atraccion/index.do");
+			resp.sendRedirect("/parque/atracciones/index.do");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/atraccion/editar.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/atracciones/editar.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}

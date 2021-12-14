@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet{
 			req.getSession().setAttribute("usuario", user);
 			resp.sendRedirect("index.jsp");
 		} else {
-			req.setAttribute("flash", "Error al iniciar sesion. Comprueba el usuario y la contraseña.");
+			req.setAttribute("flash", "Error al iniciar sesion. Comprueba el usuario y la contraseÃ±a.");
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(req, resp);
 		}
