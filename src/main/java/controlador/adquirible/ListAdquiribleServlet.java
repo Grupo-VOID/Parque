@@ -1,4 +1,4 @@
-package controlador.atracciones;
+package controlador.adquirible;
 
 import java.io.IOException;
 import java.util.List;
