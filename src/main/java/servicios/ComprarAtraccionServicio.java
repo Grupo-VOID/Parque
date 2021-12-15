@@ -2,7 +2,6 @@ package servicios;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import modelo.Atraccion;
 import modelo.Usuario;
 import persistencia.AtraccionDAO;
@@ -22,19 +21,19 @@ public class ComprarAtraccionServicio {
 		Usuario usuario = usuarioDAO.buscarPorId(usuarioId);
 		Atraccion atraccion = atraccionDAO.buscarPorId(atraccionId);
 
-		if (!atraccion.estaDisponible()) {
+		if (!atraccion.tieneCupo(1)) {
 			errores.put("atraccion", "No hay cupo disponible");
 		}
-		if (usuario.getMonedasDisponibles() < atraccion.getCosto()) {
+		if (!usuario.chequearDinero(atraccion)) {
 			errores.put("usuario", "No tienes dinero suficiente");
 		}
-		if (usuario.getTiempoDisponible() < atraccion.getTiempo()) {
+		if (!usuario.chequearTiempo(atraccion)) {
 			errores.put("usuario", "No tienes tiempo suficiente");
 		}
 
 		if (errores.isEmpty()) {
-			itinerarioDAO.insertAtraccion(usuario, atraccion);
-			atraccion.comprar();
+//			itinerarioDAO.insertAtraccion(usuario, atraccion);
+//			atraccion.comprar();
 			usuario.aceptarCompra(atraccion);
 
 			// no grabamos para no afectar la base de pruebas

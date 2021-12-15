@@ -18,9 +18,9 @@
 			<div class="alert alert-danger">
 				<p>
 					<c:out value="${flash}" />
-					<c:if test="${errors != null}">
+					<c:if test="${errores != null}">
 						<ul>
-							<c:forEach items="${errors}" var="entry">
+							<c:forEach items="${errores}" var="entry">
 								<li><c:out value="${entry.getValue()}"></c:out></li>
 							</c:forEach>
 						</ul>

@@ -50,11 +50,11 @@ public class Usuario {
 	}
 	
 	public boolean chequearDinero(Adquirible adquirible) {
-		return adquirible.getCosto() <= this.getMonedasDisponibles();
+		return adquirible.getCosto() <= this.monedasDisponibles;
 	}
 
 	public boolean chequearTiempo(Adquirible adquirible) {
-		return adquirible.getTiempo() <= this.getTiempoDisponible();
+		return adquirible.getTiempo() <= this.tiempoDisponible;
 	}
 	
 	public String getNombre() {
