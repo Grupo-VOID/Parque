@@ -14,50 +14,42 @@
 
       <div class="container-fluid content-row" style="padding-top: 2cm">
         <hr>
-        <h1>Promociones</h1>
+        <h1>Promociones y Atracciones</h1>
         <hr>
         <c:if test="${usuario.esAdministrador()}">
-          <div class="mb-3">
-            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
-              Promocion
-            </a>
-          </div>
-        </c:if>
-      </div>
-
-      <div class="container-fluid content-row" style="padding-top: 2cm">
-        <hr>
-        <h1>Atracciones</h1>
-        <hr>
-        <c:if test="${usuario.esAdministrador()}">
-          <div class="mb-3">
-            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
-              Atraccion
-            </a>
-          </div>
+        	<div class="mb-3">
+	            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
+	              Promocion
+	            </a>
+          	</div>
+          	<div class="mb-3">
+	            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
+	              Atraccion
+	            </a>
+          	</div>
         </c:if>
 
         <div class="container">
-        	<div class="row card-group">
-            	<div class="col-sm-10 col-lg-3">
-        	      <c:forEach items="${atraccion}" var="atraccion">
-    	            <div class="card">
+        	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" style="text-align:center">
+        	   <c:forEach items="${atraccion}" var="atraccion">
+        	      <div class="col">
+    	            <div class="card" style="width: 18rem;">
 	                  <img src="/Parque/assets/images/atracciones/<c:out value="${atraccion.imagen}"></c:out>" class="card-img-top" alt="...">
                 	  <div class="card-body" style="padding: 5mm">
-            	        <h5 class="card-title">
-        	              <c:out value="${atraccion.nombre}"></c:out>
-    	                </h5>
-	                    <div style="height: 120px; text-overflow: ellipsis; overflow: hidden;text-align: justify;">
+            	        <h5 class="card-title"><c:out value="${atraccion.nombre}"></c:out></h5>
+	                    <p class="card-text" style="height: 120px; text-overflow: ellipsis; overflow: hidden;text-align: justify;">
                     	  <c:out value="${atraccion.descripcion}"></c:out>
-                	    </div>
-            	        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#atraccion<c:out value="${atraccion.id}"></c:out>">Ver detalles</button>
+                	    </p>
+                	    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#atraccion<c:out value="${atraccion.id}"></c:out>">
+						  	Ver detalles
+						</button>
         	          </div>
-    	              <div class="modal fade bd-example-modal-lg" id="atraccion<c:out value="${atraccion.id}"></c:out>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"aria-hidden="true">
+    	              <div class="modal fade bd-example-modal-lg" id="atraccion<c:out value="${atraccion.id}"></c:out>" tabindex="-1" aria-labelledby="exampleModalLabel">
 	                    <div class="modal-dialog modal-lg" role="document">
                 	      <div class="modal-content">
             	            <div class="modal-header">
-        	                  	<h5 class="modal-title" id="exampleModalLongTitle">Atraccion</h5>
-                          		<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        	                  	<h5 class="modal-title" id="exampleModalLabel">Atraccion</h5>
+                          		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         	</div>
                     	    <div class="modal-body row col-md-12">
                 	          <div class="col-md-6">
@@ -67,25 +59,28 @@
                         	    <h2>
                     	          <c:out value="${atraccion.nombre}"></c:out>
                 	            </h2>
-            	                <div style="overflow-y: scroll; height:200px">
+            	                <div style="overflow-y: scroll; height:180px">
         	                      <c:out value="${atraccion.descripcion}"></c:out>
     	                        </div>
     	                        <div style="padding-top:20px">
-    	                        	<i class="fas fa-coins"></i> Costo: <c:out value="${atraccion.costo}"></c:out> &nbsp;&nbsp; <i class="fas fa-clock"></i>Duracion: <c:out value="${atraccion.tiempo}"></c:out> &nbsp;&nbsp; <i class="fas fa-users"></i> Cupo: <c:out value="${atraccion.cupoMaximo}"></c:out>
+    	                        	<i class="fas fa-film"></i> Tematica: <c:out value="${atraccion.tematica}"></c:out> &nbsp;&nbsp;<i class="fas fa-coins"></i> Costo: <c:out value="${atraccion.costo}"></c:out>
+        	                  	</div>
+        	                  	<div>
+    	                        	<i class="fas fa-clock"></i>Duracion: <c:out value="${atraccion.tiempo}"></c:out> &nbsp;&nbsp; <i class="fas fa-users"></i> Cupo: <c:out value="${atraccion.cupoMaximo}"></c:out>
         	                  	</div>
 	                          </div>
                         	</div>
 	                        <div class="modal-footer">
-                          	<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        	  <button type="button" class="btn btn-primary">Comprar</button>
+                          		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        						<button type="button" class="btn btn-primary">Comprar</button>
                     	    </div>
                 	      </div>
             	        </div>
         	          </div>
+    	              </div>
     	            </div>
-  	
-            	  </c:forEach>
-        	    </div>
+            	</c:forEach>
+        	    
     	      </div>
 	        </div>
         </div>
