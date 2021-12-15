@@ -46,7 +46,7 @@
         	   <c:forEach items="${atraccion}" var="atraccion">
         	      <div class="col">
     	            <div class="card" style="width: 18rem;">
-	                  <img src="/Parque/assets/images/atracciones/<c:out value="${atraccion.imagen}"></c:out>" class="card-img-top" alt="...">
+	                  <img src="/Parque/assets/images/atracciones/<c:out value="${atraccion.imagen}"></c:out>" class="card-img-top" alt="..." onerror="this.onerror=null;this.src='/Parque/assets/images/atracciones/noDisponible.png';">
                 	  <div class="card-body" style="padding: 5mm">
             	        <h5 class="card-title"><c:out value="${atraccion.nombre}"></c:out></h5>
 	                    <p class="card-text" style="height: 120px; text-overflow: ellipsis; overflow: hidden;text-align: justify;">
@@ -68,13 +68,13 @@
                         	</div>
                     	    <div class="modal-body row col-md-12">
                 	          <div class="col-md-6">
-            	                <img src="/Parque/assets/images/atracciones/<c:out value="${atraccion.imagen}"></c:out>" class="img-thumbnail" alt="...">
+            	                <img src="/Parque/assets/images/atracciones/<c:out value="${atraccion.imagen}"></c:out>" class="card-img-top" alt="..." onerror="this.onerror=null;this.src='/Parque/assets/images/atracciones/noDisponible.png';">
     	                      </div>
 	                          <div class="col-md-6">
                         	    <h2>
                     	          <c:out value="${atraccion.nombre}"></c:out>
                 	            </h2>
-            	                <div style="overflow-y: scroll; height:180px">
+            	                <div style="overflow-y: scroll; height:180px;text-align: justify;">
         	                      <c:out value="${atraccion.descripcion}"></c:out>
     	                        </div>
     	                        <div style="padding-top:20px">
