@@ -12,7 +12,8 @@ public class PromocionAxB extends Promocion {
 	private String descripcion;
 	private String imagen;
 
-	public PromocionAxB(int id, TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, Atraccion atraccionGratis, String descripcion, String imagen) {
+	public PromocionAxB(int id, TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2,
+			Atraccion atraccionGratis, String descripcion, String imagen) {
 		super(tematica);
 		this.id = id;
 		this.atraccionUno = atraccion1;
@@ -50,7 +51,7 @@ public class PromocionAxB extends Promocion {
 		this.atraccionUno.comprar();
 		this.atraccionDos.comprar();
 		this.atraccionGratis.comprar();
-		
+
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		atraccionDAO.updateAtraccion(atraccionUno);
 		atraccionDAO.updateAtraccion(atraccionDos);
@@ -59,14 +60,12 @@ public class PromocionAxB extends Promocion {
 
 	@Override
 	public String toString() {
-		return (this.getNombre() +": Si se compra la atraccion " + this.atraccionUno.getNombre() 
-				+ " y la atraccion " + this.atraccionDos.getNombre()
-				+ ", se lleva la atraccion " + this.atraccionGratis.getNombre() + " gratis." 
-				+ "\n Tematica: " + this.getTematica()
-				+"\n Costo Total= $" + this.getCosto()
-				+"\n Duracion Total= " + this.getTiempo() + " horas");
+		return (this.getNombre() + ": Si se compra la atraccion " + this.atraccionUno.getNombre() + " y la atraccion "
+				+ this.atraccionDos.getNombre() + ", se lleva la atraccion " + this.atraccionGratis.getNombre()
+				+ " gratis." + "\n Tematica: " + this.getTematica() + "\n Costo Total= $" + this.getCosto()
+				+ "\n Duracion Total= " + this.getTiempo() + " horas");
 	}
-	
+
 	public String getTipoPromocion() {
 		return "AXB";
 	}
@@ -83,10 +82,10 @@ public class PromocionAxB extends Promocion {
 		this.atraccionUno = atraccionUno;
 		this.atraccionDos = atraccionDos;
 		this.atraccionGratis = atraccionGratis;
-	}	
-	
+	}
+
 	public boolean esValida() {
-		return( this.atraccionUno.esValida() && this.atraccionDos.esValida() && this.atraccionGratis.esValida() );
+		return (this.atraccionUno.esValida() && this.atraccionDos.esValida() && this.atraccionGratis.esValida());
 	}
 
 	public String getDescripcion() {
@@ -103,5 +102,10 @@ public class PromocionAxB extends Promocion {
 
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
+	}
+
+	public int getCupoMaximo() {
+		return Math.min(Math.min(atraccionUno.getCupoMaximo(), atraccionDos.getCupoMaximo()),
+				atraccionGratis.getCupoMaximo());
 	}
 }

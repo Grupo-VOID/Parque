@@ -107,4 +107,8 @@ public class PromocionPorcentual extends Promocion {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
+	
+	public int getCupoMaximo() {
+		return Math.min(atraccionUno.getCupoMaximo(), atraccionDos.getCupoMaximo());
+	}
 }
