@@ -15,8 +15,9 @@
                             <a class="nav-link" href="/Parque/views/atracciones/index.do">Atracciones</a>
                         </li>
                         <c:if test="${usuario.esAdministrador()}">
-							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" href="/Parque/users/index.do">Usuarios</a></li>
+							<li class="nav-item">
+								<a class="nav-link" href="/Parque/views/usuarios/index.do">Usuarios</a>
+							</li>
 						</c:if>
                     </ul>
                     <ul class="navbar-nav">

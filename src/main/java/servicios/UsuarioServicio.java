@@ -47,9 +47,9 @@ public class UsuarioServicio {
 		return usuario;
 	}
 
-	public void borrar(Usuario usuario) {
+	public void borrar(int id) {
 		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
-		usuarioDAO.eliminarUsuario(usuario);
+		usuarioDAO.eliminarUsuario(usuarioDAO.buscarPorId(id));
 	}
 
 	public Usuario buscar(int id) {

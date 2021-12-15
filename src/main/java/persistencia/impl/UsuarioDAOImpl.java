@@ -50,7 +50,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			statement.setDouble(4, usuario.getMonedasDisponibles());
 			statement.setDouble(5, usuario.getTiempoDisponible());
 			statement.setInt(6, usuario.getTematica().getId());
-// ojo porque en la base no existe tipo de dato boolean
 			statement.setBoolean(7, (usuario.esAdministrador()));
 			statement.setInt(8, usuario.getId());
 			int rows = statement.executeUpdate();
@@ -74,7 +73,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			statement.setDouble(4, usuario.getMonedasDisponibles());
 			statement.setDouble(5, usuario.getTiempoDisponible());
 			statement.setInt(6, usuario.getTematica().getId());
-// ojo porque en la base no existe tipo de dato boolean
 			statement.setBoolean(7, usuario.esAdministrador());
 			
 			int rows = statement.executeUpdate();

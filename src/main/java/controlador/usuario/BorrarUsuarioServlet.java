@@ -7,8 +7,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import persistencia.UsuarioDAO;
-import persistencia.comunes.DAOFactory;
 import servicios.UsuarioServicio;
 
 @WebServlet("/views/usuarios/borrar.do")
@@ -26,11 +24,7 @@ public class BorrarUsuarioServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
-
-		UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
-		usuarioDAO.buscarPorId(id);
-
-		usuarioServicio.borrar(usuarioDAO.buscarPorId(id));
+		usuarioServicio.borrar(id);
 
 		resp.sendRedirect("/Parque/views/atracciones/index.do");
 	}
