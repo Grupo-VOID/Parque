@@ -12,7 +12,8 @@ public class PromocionAbsoluta extends Promocion {
 	private String descripcion;
 	private String imagen;
 
-	public PromocionAbsoluta(int id, TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2, double descuento, String descripcion, String imagen) {
+	public PromocionAbsoluta(int id, TipoAtraccion tematica, Atraccion atraccion1, Atraccion atraccion2,
+			double descuento, String descripcion, String imagen) {
 		super(tematica);
 		this.id = id;
 		this.atraccionUno = atraccion1;
@@ -56,13 +57,11 @@ public class PromocionAbsoluta extends Promocion {
 
 	@Override
 	public String toString() {
-		return (this.getNombre() + ": Si compra la atraccion " + this.atraccionUno.getNombre() 
-			+ " y la atraccion " + this.atraccionDos.getNombre() 
-			+ ", obtiene un descuento de $" + this.descuento
-			+ " sobre el costo total." + "\n Tematica: " + this.getTematica() 
-			+ "\n Costo Total= $"+ this.getCosto() 
-			+ "\n Duracion Total= " + this.getTiempo() + " horas");
-		}
+		return (this.getNombre() + ": Si compra la atraccion " + this.atraccionUno.getNombre() + " y la atraccion "
+				+ this.atraccionDos.getNombre() + ", obtiene un descuento de $" + this.descuento
+				+ " sobre el costo total." + "\n Tematica: " + this.getTematica() + "\n Costo Total= $"
+				+ this.getCosto() + "\n Duracion Total= " + this.getTiempo() + " horas");
+	}
 
 	public String getTipoPromocion() {
 		return "ABSOLUTA";
@@ -80,14 +79,15 @@ public class PromocionAbsoluta extends Promocion {
 		this.descuento = descuento;
 	}
 
-	// ojo si se setea atracciones incluidas y el cliente ya tenia comprada esa atracción puede dar error en la base
+	// ojo si se setea atracciones incluidas y el cliente ya tenia comprada esa
+	// atracción puede dar error en la base
 	public void setAtraccionesIncluidas(Atraccion atraccionUno, Atraccion atraccionDos) {
 		this.atraccionUno = atraccionUno;
 		this.atraccionDos = atraccionDos;
 	}
-	
+
 	public boolean esValida() {
-		return( this.atraccionUno.esValida() && this.atraccionDos.esValida() );
+		return (this.atraccionUno.esValida() && this.atraccionDos.esValida());
 	}
 
 	public String getDescripcion() {
@@ -104,5 +104,9 @@ public class PromocionAbsoluta extends Promocion {
 
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
+	}
+
+	public int getCupoMaximo() {
+		return Math.min(atraccionUno.getCupoMaximo(), atraccionDos.getCupoMaximo());
 	}
 }
