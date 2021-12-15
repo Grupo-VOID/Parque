@@ -196,7 +196,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		String username = resultados.getString("username");
 		String password = resultados.getString("password");
 		String nombre = resultados.getString("nombre_usuario");
-		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(resultados.getString("id_tematica_preferida"));
+		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(resultados.getInt("id_tematica_preferida"));
 		int dinero = resultados.getInt("dinero_disponible");
 		double tiempo = resultados.getInt("tiempo_disponible");
 // ojo porque en la base no existe tipo de dato boolean
