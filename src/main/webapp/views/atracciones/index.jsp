@@ -13,6 +13,20 @@
       </header>
 
       <div class="container-fluid content-row" style="padding-top: 2cm">
+      	<c:if test="${flash != null}">
+			<div class="alert alert-danger">
+				<p>
+					<c:out value="${flash}" />
+					<c:if test="${errors != null}">
+						<ul>
+							<c:forEach items="${errors}" var="entry">
+								<li><c:out value="${entry.getValue()}"></c:out></li>
+							</c:forEach>
+						</ul>
+					</c:if>
+				</p>
+			</div>
+		</c:if>
         <hr>
         <h1>Promociones y Atracciones</h1>
         <hr>
@@ -72,7 +86,16 @@
                         	</div>
 	                        <div class="modal-footer">
                           		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        						<button type="button" class="btn btn-primary">Comprar</button>
+        						<c:choose>
+								<c:when
+									test="${usuario.chequearDinero(atraccion) && usuario.chequearTiempo(atraccion) && atraccion.tieneCupo(1)}">
+									<a href="/Parque/views/atracciones/comprar.do?id=${atraccion.id}"
+										class="btn btn-success rounded" role="button">Comprar</a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="btn btn-secondary rounded disabled" role="button">No se puede comprar</a>
+								</c:otherwise>
+							</c:choose></td>
                     	    </div>
                 	      </div>
             	        </div>
