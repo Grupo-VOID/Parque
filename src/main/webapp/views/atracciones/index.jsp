@@ -31,20 +31,17 @@
         <hr>
         <h1>Promociones y Atracciones</h1>
         <hr>
-        <c:if test="${usuario.esAdministrador()}">
-        	<div class="mb-3">
-	            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
-	              Promocion
-	            </a>
-          	</div>
-          	<div class="mb-3">
-	            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
-	              Atraccion
-	            </a>
-          	</div>
-        </c:if>
-
         <div class="container">
+        	<c:if test="${usuario.esAdministrador()}">
+	        	<div class="mb-3">
+		            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
+		              Promocion
+		            </a>
+		            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
+		              Atraccion
+		            </a>
+	          	</div>
+	        </c:if>
         	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" style="text-align:center">
         	   <c:forEach items="${atraccion}" var="atraccion">
         	      <div class="col">
@@ -55,9 +52,12 @@
 	                    <p class="card-text" style="height: 120px; text-overflow: ellipsis; overflow: hidden;text-align: justify;">
                     	  <c:out value="${atraccion.descripcion}"></c:out>
                 	    </p>
-                	    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#atraccion<c:out value="${atraccion.id}"></c:out>">
+        	          </div>
+        	          <div class="card-footer" style="text-align: right">
+        	          	
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#atraccion<c:out value="${atraccion.id}"></c:out>">
 						  	Ver detalles
-						</button>
+						</button> 
         	          </div>
     	              <div class="modal fade bd-example-modal-lg" id="atraccion<c:out value="${atraccion.id}"></c:out>" tabindex="-1" aria-labelledby="exampleModalLabel">
 	                    <div class="modal-dialog modal-lg" role="document">
@@ -86,17 +86,23 @@
 	                          </div>
                         	</div>
 	                        <div class="modal-footer">
-                          		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+	                        	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+	                        	<c:if test="${usuario.esAdministrador()}">
+									<a href="/Parque/views/atracciones/editar.do?id=${atraccion.id}"
+										class="btn btn-light rounded-0" role="button"><i class="fas fa-pencil-alt"></i></a>
+									<a href="/Parque/views/atracciones/borrar.do?id=${atraccion.id}"
+										class="btn btn-danger rounded" role="button"><i class="fas fa-trash-alt"></i></a>
+								</c:if>
         						<c:choose>
-								<c:when
-									test="${usuario.chequearDinero(atraccion) && usuario.chequearTiempo(atraccion) && atraccion.tieneCupo(1)}">
-									<a href="/Parque/views/atracciones/comprar.do?id=${atraccion.id}"
-										class="btn btn-success rounded" role="button">Comprar</a>
-								</c:when>
-								<c:otherwise>
-									<a href="#" class="btn btn-secondary rounded disabled" role="button">No se puede comprar</a>
-								</c:otherwise>
-							</c:choose></td>
+									<c:when
+										test="${usuario.chequearDinero(atraccion) && usuario.chequearTiempo(atraccion) && atraccion.tieneCupo(1)}">
+										<a href="/Parque/views/atracciones/comprar.do?id=${atraccion.id}"
+											class="btn btn-success rounded" role="button">Comprar</a>
+									</c:when>
+									<c:otherwise>
+										<a href="#" class="btn btn-secondary rounded disabled" role="button">No se puede comprar</a>
+									</c:otherwise>
+								</c:choose>
                     	    </div>
                 	      </div>
             	        </div>

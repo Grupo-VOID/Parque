@@ -53,9 +53,10 @@ public class AtraccionServicio {
 		return atraccion;
 	}
 
-	public void borrar(Atraccion atraccion) {
-		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
-		attractionDAO.eliminarAtraccion(atraccion);
+	public void borrar(int id) {
+		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
+		Atraccion atraccion = atraccionDAO.buscarPorId(id);
+		atraccionDAO.eliminarAtraccion(atraccion);
 	}
 
 	public Atraccion buscar(Integer id) {
