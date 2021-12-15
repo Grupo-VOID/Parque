@@ -49,7 +49,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 		
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, atraccion.getNombre());
-			statement.setInt(2, atraccion.getCupoActual());
+			statement.setInt(2, atraccion.getCupoMaximo());
 			statement.setDouble(3, atraccion.getCosto());
 			statement.setDouble(4, atraccion.getTiempo());
 			statement.setInt(5, atraccion.getTematica().getId());

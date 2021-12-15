@@ -1,7 +1,6 @@
 package controlador.atracciones;
 
 import java.io.IOException;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -43,11 +42,13 @@ public class EditarAtraccionesServlet extends HttpServlet {
 		String nombre = req.getParameter("nombre");
 		String tipoAtraccion = req.getParameter("tematica");
 		Double costo = Double.parseDouble(req.getParameter("costo"));
-		// Integer cost = req.getParameter("cost").trim() == "" ? null : Integer.parseInt(req.getParameter("cost"));
 		Double duracion = Double.parseDouble(req.getParameter("duracion"));
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
 		String descripcion = req.getParameter("descripcion");
 		String imagen = req.getParameter("imagen");
+//		Part filePart = req.getPart("imagen"); // Retrieves <input type="file" name="file">
+//	    String imagen = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
+//	    InputStream fileContent = filePart.getInputStream();
 		
 		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
 		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(tipoAtraccion);

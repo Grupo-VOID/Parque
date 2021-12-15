@@ -37,7 +37,7 @@
 		            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
 		              Promocion
 		            </a>
-		            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
+		            <a href="/Parque/views/atracciones/crear.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
 		              Atraccion
 		            </a>
 	          	</div>
