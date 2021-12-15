@@ -397,7 +397,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 		String atraccionesIncluidas = resultados.getString("lista_atracciones");
 		int parametro = resultados.getInt("parametro");
 		String descripcion = resultados.getString("descripcion_promocion");
-		String imagen = resultados.getString("descripcion_atraccion");
+		String imagen = resultados.getString("imagen_promocion");
 
 		String[] atr = atraccionesIncluidas.split(" ");
 
