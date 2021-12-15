@@ -11,7 +11,7 @@ import persistencia.TipoAtraccionDAO;
 import persistencia.comunes.DAOFactory;
 import servicios.TipoAtraccionServicio;
 
-@WebServlet("/tematicas/borrar.do")
+@WebServlet("/views/tematicas/borrar.do")
 public class BorrarTipoAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1537949074766873118L;
@@ -32,6 +32,6 @@ public class BorrarTipoAtraccionesServlet extends HttpServlet {
 
 		tipoAtraccionServicio.borrar(tipoAtraccionDAO.encontrarTipoAtraccion(id));
 
-		resp.sendRedirect("/parque/tematicas/index.do");
+		resp.sendRedirect("/Parque/views/atracciones/index.do");
 	}
 }

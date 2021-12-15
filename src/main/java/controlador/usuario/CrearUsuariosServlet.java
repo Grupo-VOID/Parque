@@ -15,7 +15,7 @@ import persistencia.comunes.DAOFactory;
 import servicios.UsuarioServicio;
 
 
-@WebServlet("/usuarios/crear.do")
+@WebServlet("/views/usuarios/crear.do")
 public class CrearUsuariosServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
@@ -31,7 +31,7 @@ public class CrearUsuariosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/vistas/usuarios/crear.jsp");
+				.getRequestDispatcher("/views/usuarios/crear.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -51,12 +51,12 @@ public class CrearUsuariosServlet extends HttpServlet {
 		Usuario usuario = servicioUsuario.crear(username, password, nombre, tematica, monedas, tiempo, false);
 		
 		if (usuario.esValido()) {
-			resp.sendRedirect("/parque/usuarios/index.do");
+			resp.sendRedirect("/Parque/views/atracciones/index.do");
 		} else {
 			req.setAttribute("usuario", usuario);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/vistas/usuarios/crear.jsp");
+					.getRequestDispatcher("/views/usuarios/crear.jsp");
 			dispatcher.forward(req, resp);
 		}
 

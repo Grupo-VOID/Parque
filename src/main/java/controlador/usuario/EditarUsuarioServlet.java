@@ -14,7 +14,7 @@ import persistencia.TipoAtraccionDAO;
 import persistencia.comunes.DAOFactory;
 import servicios.UsuarioServicio;
 
-@WebServlet("/usuarios/editar.do")
+@WebServlet("/views/usuarios/editar.do")
 public class EditarUsuarioServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7598291131560345626L;
@@ -33,7 +33,7 @@ public class EditarUsuarioServlet extends HttpServlet {
 		Usuario usuario = usuarioServicio.buscar(id);
 		req.setAttribute("usuario", usuario);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/usuarios/editar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/editar.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -52,11 +52,11 @@ public class EditarUsuarioServlet extends HttpServlet {
 		Usuario usuario = usuarioServicio.crear(username, password, nombre, tematica, monedas, tiempo, false);
 
 		if (usuario.esValido()) {
-			resp.sendRedirect("/parque/usuarios/index.do");
+			resp.sendRedirect("/Parque/views/atracciones/index.do");
 		} else {
 			req.setAttribute("usuario", usuario);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/usuarios/editar.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/usuarios/editar.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}

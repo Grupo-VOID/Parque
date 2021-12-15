@@ -16,7 +16,7 @@ import persistencia.TipoAtraccionDAO;
 import persistencia.comunes.DAOFactory;
 import servicios.PromocionServicio;
 
-@WebServlet("/promociones/crear.do")
+@WebServlet("/views/promociones/crear.do")
 public class CrearPromocionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
@@ -31,7 +31,7 @@ public class CrearPromocionesServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones/crear.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promociones/crear.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -56,11 +56,11 @@ public class CrearPromocionesServlet extends HttpServlet {
 		Promocion promocion = promocionServicio.crear(tipoPromocion, tematica, atraccion1, atraccion2,
 				parametro, descripcion, imagen);
 		if (promocion.esValida()) {
-			resp.sendRedirect("/parque/promociones/index.do");
+			resp.sendRedirect("/Parque/views/atracciones/index.do");
 		} else {
 			req.setAttribute("promocion", promocion);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones/crear.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promociones/crear.jsp");
 			dispatcher.forward(req, resp);
 		}
 

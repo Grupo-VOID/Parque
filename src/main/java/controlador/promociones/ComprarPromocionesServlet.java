@@ -13,7 +13,7 @@ import modelo.Usuario;
 import persistencia.comunes.DAOFactory;
 import servicios.ComprarPromocionServicio;
 
-@WebServlet("/promociones/comprar.do")
+@WebServlet("/views/promociones/comprar.do")
 public class ComprarPromocionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
@@ -42,7 +42,7 @@ public class ComprarPromocionesServlet extends HttpServlet {
 			req.setAttribute("flash", "No ha podido realizarse la compra");
 		}
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/promociones/index.do");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promociones/index.do");
 		dispatcher.forward(req, resp);
 	}
 }

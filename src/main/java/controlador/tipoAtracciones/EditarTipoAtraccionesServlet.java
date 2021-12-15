@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import modelo.TipoAtraccion;
 import servicios.TipoAtraccionServicio;
 
-@WebServlet("/tematicas/editar.do")
+@WebServlet("/views/tematicas/editar.do")
 public class EditarTipoAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7598291131560345626L;
@@ -30,7 +30,7 @@ public class EditarTipoAtraccionesServlet extends HttpServlet {
 		TipoAtraccion tipoAtraccion = tipoAtraccionServicio.buscar(id);
 		req.setAttribute("tematica", tipoAtraccion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/tematicas/editar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/tematicas/editar.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -41,7 +41,7 @@ public class EditarTipoAtraccionesServlet extends HttpServlet {
 
 		tipoAtraccionServicio.crear(id, tematica);
 
-		resp.sendRedirect("/parque/tematicas/index.do");
+		resp.sendRedirect("/Parque/views/atracciones/index.do");
 
 	}
 }

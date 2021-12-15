@@ -11,7 +11,7 @@ import persistencia.AtraccionDAO;
 import persistencia.comunes.DAOFactory;
 import servicios.AtraccionServicio;
 
-@WebServlet("/atracciones/borrar.do")
+@WebServlet("/views/atracciones/borrar.do")
 public class BorrarAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1537949074766873118L;
@@ -32,7 +32,7 @@ public class BorrarAtraccionesServlet extends HttpServlet {
 
 		atraccionServicio.borrar(atracionDAO.buscarPorId(id));
 
-		resp.sendRedirect("/parque/atracciones/index.do");
+		resp.sendRedirect("/Parque/views/atracciones/index.do");
 	}
 
 

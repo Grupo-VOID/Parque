@@ -16,7 +16,7 @@ import persistencia.TipoAtraccionDAO;
 import persistencia.comunes.DAOFactory;
 import servicios.PromocionServicio;
 
-@WebServlet("/promociones/editar.do")
+@WebServlet("/views/promociones/editar.do")
 public class EditarPromocionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7598291131560345626L;
@@ -35,7 +35,7 @@ public class EditarPromocionesServlet extends HttpServlet {
 		Promocion promocion = promocionServicio.buscar(id);
 		req.setAttribute("promocion", promocion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones/editar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promociones/editar.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -62,11 +62,11 @@ public class EditarPromocionesServlet extends HttpServlet {
 				descripcion, imagen);
 
 		if (promocion.esValida()) {
-			resp.sendRedirect("/parque/promociones/index.do");
+			resp.sendRedirect("/Parque/views/atracciones/index.do");
 		} else {
 			req.setAttribute("promocion", promocion);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones/editar.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promociones/editar.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}
