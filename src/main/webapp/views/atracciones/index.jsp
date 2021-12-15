@@ -13,6 +13,7 @@
       </header>
 
       <div class="container-fluid content-row" style="padding-top: 2cm">
+      
       	<c:if test="${flash != null}">
 			<div class="alert alert-danger">
 				<p>
