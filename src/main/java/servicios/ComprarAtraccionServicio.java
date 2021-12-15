@@ -32,11 +32,8 @@ public class ComprarAtraccionServicio {
 		}
 
 		if (errores.isEmpty()) {
-//			itinerarioDAO.insertAtraccion(usuario, atraccion);
-//			atraccion.comprar();
 			usuario.aceptarCompra(atraccion);
 
-			// no grabamos para no afectar la base de pruebas
 			atraccionDAO.updateAtraccion(atraccion);
 			usuarioDAO.updateUsuario(usuario);
 		}

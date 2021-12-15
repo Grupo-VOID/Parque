@@ -25,19 +25,16 @@ public class ComprarPromocionServicio {
 		if (!promocion.estaDisponible()) {
 			errores.put("promocion", "No hay cupo disponible");
 		}
-		if (usuario.getMonedasDisponibles() < promocion.getCosto()) {
+		if (!usuario.chequearDinero(promocion)) {
 			errores.put("usuario", "No tienes dinero suficiente");
 		}
-		if (usuario.getTiempoDisponible() < promocion.getTiempo()) {
+		if (!usuario.chequearTiempo(promocion)) {
 			errores.put("usuario", "No tienes tiempo suficiente");
 		}
 
 		if (errores.isEmpty()) {
-			itinerarioDAO.insertAtraccion(usuario, promocion);
-			promocion.comprar();
 			usuario.aceptarCompra(promocion);
 
-			// no grabamos para no afectar la base de pruebas
 			promocionDAO.updatePromocion(promocion);
 			usuarioDAO.updateUsuario(usuario);
 		}
