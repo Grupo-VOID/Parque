@@ -44,11 +44,12 @@ public class CrearUsuariosServlet extends HttpServlet {
 		String tipoAtraccion = req.getParameter("tematica");
 		Double monedas = Double.parseDouble(req.getParameter("monedasDisponibles"));
 		Double tiempo = Double.parseDouble(req.getParameter("tiempoDisponilbe"));
+		Boolean admin = Boolean.parseBoolean(req.getParameter("admin"));
 
 		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
 		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(tipoAtraccion);
 		
-		Usuario usuario = servicioUsuario.crear(username, password, nombre, tematica, monedas, tiempo, false);
+		Usuario usuario = servicioUsuario.crear(username, password, nombre, tematica, monedas, tiempo, admin);
 		
 		if (usuario.esValido()) {
 			resp.sendRedirect("/Parque/views/atracciones/index.do");
