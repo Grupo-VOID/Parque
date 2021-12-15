@@ -52,10 +52,11 @@ public class CrearUsuariosServlet extends HttpServlet {
 		Usuario usuario = servicioUsuario.crear(username, password, nombre, tematica, monedas, tiempo, admin);
 		
 		if (usuario.esValido()) {
-			resp.sendRedirect("/Parque/views/atracciones/index.do");
+			req.setAttribute("flash", "Usuario editado con exito");
+			resp.sendRedirect("/Parque/views/usuarios/index.do");
 		} else {
 			req.setAttribute("usuario", usuario);
-
+			req.setAttribute("flash", "No se ha podido editar el usuario");
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/views/usuarios/crear.jsp");
 			dispatcher.forward(req, resp);
