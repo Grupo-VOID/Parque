@@ -46,7 +46,6 @@ public class EditarPromocionesServlet extends HttpServlet {
 		String tipoAtraccion = req.getParameter("tematica");
 		String atraccionUno = req.getParameter("atraccion1");
 		String atraccionDos = req.getParameter("atraccion2");
-		// ojo que aca no se como es lo de parametro
 		Double parametro = Double.parseDouble("parametro");
 		String descripcion = req.getParameter("descripcion");
 		String imagen = req.getParameter("imagen");
@@ -57,6 +56,12 @@ public class EditarPromocionesServlet extends HttpServlet {
 		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 		Atraccion atraccion1 = atraccionDAO.buscarPorNombre(atraccionUno);
 		Atraccion atraccion2 = atraccionDAO.buscarPorNombre(atraccionDos);
+		
+		if(tipoPromocion == "AxB") {
+			String atraccionGratis = req.getParameter("atraccionGratis");
+			Atraccion atraccion3 = atraccionDAO.buscarPorNombre(atraccionGratis);
+			parametro = (double) atraccion3.getId();
+		}
 
 		Promocion promocion = promocionServicio.update(id, tipoPromocion, tematica, atraccion1, atraccion2, parametro,
 				descripcion, imagen);
