@@ -12,15 +12,14 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import modelo.Usuario;
 
-//@WebFilter(urlPatterns = "*.do")
-@WebFilter()
+@WebFilter(urlPatterns = "*.do")
 public class LoggedFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		Usuario username = (Usuario)((HttpServletRequest) request).getSession().getAttribute("username");
+		Usuario username = (Usuario)((HttpServletRequest) request).getSession().getAttribute("usuario");
 
 		if (username != null) {
 			chain.doFilter(request, response);
