@@ -1,0 +1,24 @@
+main {
+  position: inherit;
+  margin: 6rem 1.5rem;
+}
+
+.contenedor {
+  padding: 0 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.contenedor h2 {
+  padding: 1.2rem 0 0.5rem;
+}
+
+.contenedor h4 {
+  padding: 0.2rem;
+}
+
+.contenedor a {
+  text-decoration: none;
+  color: #0d6efd;
+}
