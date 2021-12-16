@@ -63,7 +63,7 @@
 									</thead>
 									<tbody>
 										<c:forEach items="${user.getListaAdquiribles()}" var="adq">
-											<tr>
+											<tr class="table-info">
 												<td><c:out value="${adq.nombre}"></c:out></td>
 												<td><c:out value="${adq.tematica}"></c:out></td>
 												<td><c:out value="${adq.tiempo}"></c:out></td>
