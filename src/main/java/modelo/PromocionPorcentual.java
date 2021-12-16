@@ -71,7 +71,7 @@ public class PromocionPorcentual extends Promocion {
 		return "PORCENTUAL";
 	}
 
-	public double getPorcentajeDescuento() {
+	public double getParametro() {
 		return porcentajeDescuento;
 	}
 	

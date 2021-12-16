@@ -113,7 +113,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, promocion.getTematica().getTematica());
 			statement.setInt(2, this.obtenerIdTipoPromocion(promocion.getTipoPromocion()));
-			statement.setDouble(3, promocion.getPorcentajeDescuento());
+			statement.setDouble(3, promocion.getParametro());
 			statement.setString(4, promocion.getDescripcion());
 			statement.setString(5, promocion.getImagen());
 			int rows = statement.executeUpdate();
@@ -228,7 +228,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, promocion.getTematica().getTematica());
 			statement.setInt(2, this.obtenerIdTipoPromocion(promocion.getTipoPromocion()));
-			statement.setDouble(3, promocion.getPorcentajeDescuento());
+			statement.setDouble(3, promocion.getParametro());
 			statement.setString(4, promocion.getDescripcion());
 			statement.setString(5, promocion.getImagen());
 			statement.setInt(6, promocion.getId());

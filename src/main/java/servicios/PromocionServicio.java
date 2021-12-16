@@ -62,7 +62,7 @@ public class PromocionServicio {
 			PromocionAbsoluta promocionAbsoluta = (PromocionAbsoluta) promocion;
 			promocionAbsoluta.setAtraccionesIncluidas(atraccion1, atraccion2);
 			promocionAbsoluta.setTematica(tematica);
-			promocionAbsoluta.setDescuento(parametro);
+			promocionAbsoluta.setParametro(parametro);
 			promocionAbsoluta.setDescripcion(descripcion);
 			promocionAbsoluta.setImagen(imagen);
 		}
