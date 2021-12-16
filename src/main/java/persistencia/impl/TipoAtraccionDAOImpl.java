@@ -71,9 +71,7 @@ public class TipoAtraccionDAOImpl implements TipoAtraccionDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, tipoAtraccion.getId());
 			int rows = statement.executeUpdate();
-			
-			//parque.eliminarTipoAtraccion(tipoAtraccion);
-			
+				
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);

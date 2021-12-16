@@ -70,22 +70,6 @@ public class PromocionDAOImpl implements PromocionDAO {
 		}
 	}
 
-//	public void agregarPromocion(String tipoPromocion, TipoAtraccion tematica, Atraccion atraccion1,
-//			Atraccion atraccion2, Atraccion atraccion3) {
-//		try {
-//			Promocion promocion = new PromocionAxB(this.obtenerUltimoIDPromocion() + 1, tematica, atraccion1,
-//					atraccion2, atraccion3);
-//			this.agregarPromocionAxB((PromocionAxB) promocion);
-//
-//			for (Atraccion atraccion : promocion.atraccionesIncluidas()) {
-//				this.agregarAtraccionesAPromocion(promocion, atraccion);
-//			}
-//
-//		} catch (Exception e) {
-//			throw new MissingDataException(e);
-//		}
-//	}
-
 	private int agregarPromocionAbsoluta(PromocionAbsoluta promocion) {
 		try {
 			String sql = "INSERT INTO promociones (nombre_promocion, id_tipo_promocion, parametro, promocion_activa, descripcion_promocion, imagen_promocion) VALUES (?, ?, ?, 1, ?, ?)";

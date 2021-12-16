@@ -123,24 +123,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 	
-//	public int obtenerUltimoIDUsuario() {
-//		try {
-//			String sql = "SELECT max(id_usuario AS 'id'\r\n" + "FROM usuarios";
-//			Connection conn = ConnectionProvider.getConnection();
-//			PreparedStatement statement = conn.prepareStatement(sql);
-//			ResultSet resultados = statement.executeQuery();
-//
-//			int id = 0;
-//
-//			if (resultados.next()) {
-//				id = resultados.getInt("id");
-//			}
-//			return id;
-//		} catch (Exception e) {
-//			throw new MissingDataException(e);
-//		}
-//	}
-	
 	public Usuario buscarPorNombre(String nombre) {
 		try {
 			String sql = "SELECT * FROM usuarios\r\n"
@@ -197,7 +179,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(resultados.getInt("id_tematica_preferida"));
 		int dinero = resultados.getInt("dinero_disponible");
 		double tiempo = resultados.getInt("tiempo_disponible");
-// ojo porque en la base no existe tipo de dato boolean
 		boolean admin = resultados.getBoolean("admin");
 		Usuario usuario = new Usuario(id, username, password, nombre, tematica, dinero, tiempo, admin);
 		return usuario;
