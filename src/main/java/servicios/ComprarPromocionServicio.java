@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import modelo.Promocion;
+import modelo.Sugerencia;
 import modelo.Usuario;
 import persistencia.ItinerarioDAO;
 import persistencia.PromocionDAO;
@@ -30,6 +31,9 @@ public class ComprarPromocionServicio {
 		}
 		if (!usuario.chequearTiempo(promocion)) {
 			errores.put("usuario", "No tienes tiempo suficiente");
+		}
+		if(!Sugerencia.validarSugerencia(usuario, promocion)) {
+			errores.put("usuario", "Atraccion ya comprada");
 		}
 
 		if (errores.isEmpty()) {

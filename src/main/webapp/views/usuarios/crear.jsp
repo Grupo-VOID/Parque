@@ -14,7 +14,7 @@
 		  	<h1 style="padding-top:1cm;padding-bottom:1cm">Crear usuario</h1>
 		  	<c:if test="${usuarioTemp != null && !usuarioTemp.esValido()}">
 				<div class="alert alert-danger">
-					<p>Se encontraron errores al actualizar el usuario.</p>
+					<p>Se encontraron errores al crear el usuario.</p>
 				</div>
 			</c:if>
 		  

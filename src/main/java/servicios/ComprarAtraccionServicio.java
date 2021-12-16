@@ -3,6 +3,7 @@ package servicios;
 import java.util.HashMap;
 import java.util.Map;
 import modelo.Atraccion;
+import modelo.Sugerencia;
 import modelo.Usuario;
 import persistencia.AtraccionDAO;
 import persistencia.ItinerarioDAO;
@@ -20,7 +21,7 @@ public class ComprarAtraccionServicio {
 
 		Usuario usuario = usuarioDAO.buscarPorId(usuarioId);
 		Atraccion atraccion = atraccionDAO.buscarPorId(atraccionId);
-
+		
 		if (!atraccion.tieneCupo(1)) {
 			errores.put("atraccion", "No hay cupo disponible");
 		}
@@ -29,6 +30,9 @@ public class ComprarAtraccionServicio {
 		}
 		if (!usuario.chequearTiempo(atraccion)) {
 			errores.put("usuario", "No tienes tiempo suficiente");
+		}
+		if(!Sugerencia.validarSugerencia(usuario, atraccion)) {
+			errores.put("usuario", "Atraccion ya comprada");
 		}
 
 		if (errores.isEmpty()) {
