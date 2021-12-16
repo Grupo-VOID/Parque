@@ -11,20 +11,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/Parque/views/sugerencia.do">Atracciones</a>
                         </li>
-<<<<<<< HEAD
-                        <c:choose>
-                        	<c:when test="${usuario.esAdministrador()}">
-                        		<li class="nav-item"><a class="nav-link"
-								href="/Parque/views/itinerarios/admin.do">Itinerarios</a></li>
-                        	</c:when>
-						<c:otherwise>
-							<li class="nav-item"><a class="nav-link"
-								href="/Parque/views/itinerarios/index.do">Mi itinerario</a></li>
-						</c:otherwise>
-						</c:choose>
-=======
->>>>>>> b24d98f2b251bde343348abf0e4a7f241a716027
-                        <c:if test="${usuario.esAdministrador()}">
+						<c:if test="${usuario.esAdministrador()}">
 							<li class="nav-item">
 								<a class="nav-link" href="/Parque/views/usuarios/index.do">Usuarios</a>
 							</li>
@@ -36,9 +23,16 @@
                     <ul class="navbar-nav">
                         <c:choose>
                         <c:when test="${usuario != null}">
-                        	<li class="nav-item">
-	                            <a class="nav-link" href="/Parque/views/itinerarios/index.do">Mi itinerario</a>
-	                        </li>
+                        	<c:choose>
+                        	<c:when test="${usuario.esAdministrador()}">
+                        		<li class="nav-item"><a class="nav-link"
+								href="/Parque/views/itinerarios/admin.do">Itinerarios</a></li>
+                        	</c:when>
+							<c:otherwise>
+							<li class="nav-item"><a class="nav-link"
+								href="/Parque/views/itinerarios/index.do">Mi itinerario</a></li>
+							</c:otherwise>
+							</c:choose>
                         	<li class="nav-item dropdown">
                         		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           							<c:out value="${usuario.nombre}"></c:out>
