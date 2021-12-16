@@ -21,9 +21,13 @@ public class TipoAtraccionServicio {
 		TipoAtraccion tipoAtraccion = new TipoAtraccion(this.obtenerUltimoIdTipoAtraccion() + 1, tematica);
 
 		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
+		TipoAtraccion tipoAux = tipoAtraccionDAO.encontrarTipoAtraccion(tematica);
 		
-		if(!tipoAtraccionDAO.encontrarTipoAtraccion(tematica).getTematica().equals(tipoAtraccion.getTematica()))
+		if(tipoAux==null)
 			tipoAtraccionDAO.agregarTipoAtraccion(tipoAtraccion);
+		else
+			if(!tipoAux.getTematica().equals(tipoAtraccion.getTematica()))
+				tipoAtraccionDAO.agregarTipoAtraccion(tipoAtraccion);
 
 	return tipoAtraccion;
 
@@ -34,10 +38,15 @@ public class TipoAtraccionServicio {
 		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
 		TipoAtraccion tipoAtraccion = tipoAtraccionDAO.encontrarTipoAtraccion(id);
 		TipoAtraccion tipoAux = tipoAtraccionDAO.encontrarTipoAtraccion(tematica);
-		if(tipoAux != null && !tipoAux.getTematica().equals(tipoAtraccion.getTematica())) {
-			tipoAtraccion.setTematica(tematica);
+		if(tipoAux==null) {
+			tipoAtraccion.setTematica(tematica.toUpperCase());
 			tipoAtraccionDAO.updateTipoAtraccion(tipoAtraccion);
 		}
+		else
+			if(!tipoAux.getTematica().equals(tipoAtraccion.getTematica())) {
+				tipoAtraccion.setTematica(tematica.toUpperCase());
+				tipoAtraccionDAO.updateTipoAtraccion(tipoAtraccion);
+			}
 		return tipoAtraccion;
 	}
 
