@@ -14,7 +14,7 @@
 		  	<h1 style="padding-top:1cm;padding-bottom:1cm">Crear atraccion</h1>
 		  	<c:if test="${atraccion != null && !atraccion.esValida()}">
 				<div class="alert alert-danger">
-					<p>Se encontraron errores al actualizar la atracción.</p>
+					<p>Se encontraron errores al crear la atracción.</p>
 				</div>
 			</c:if>
 		  
