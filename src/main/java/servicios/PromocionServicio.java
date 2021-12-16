@@ -90,9 +90,9 @@ public class PromocionServicio {
 		return promocion;
 	}
 
-	public void borrar(Promocion promocion) {
+	public void borrar(int id) {
 		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
-		promocionDAO.eliminarPromocion(promocion);
+		promocionDAO.eliminarPromocion(promocionDAO.buscarPorId(id));
 	}
 
 	public Promocion buscar(Integer id) {
