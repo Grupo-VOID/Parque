@@ -50,8 +50,8 @@
                     <a class="forgot_password" href="#">No recuerdo mi contraseña</a>
                 </div>
                 <div class="login_container">
-                    <a href="index.jsp">Entrar como visitante</a>
-                    <p class="new_user">¿No tienes una cuenta? <a href="mailto:nohaytal@webmaster.com">Contactate con el webmaster</a>
+                	<a class="btn btn-primary" href="index.jsp" role="button">Entrar como visitante</a>
+                    <p class="new_user">¿No tienes una cuenta? <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nohaytal@webmaster.com">Contactate con el webmaster</a>
                     </p>
                 </div>
 
