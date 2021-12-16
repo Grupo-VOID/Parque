@@ -14,9 +14,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/Parque/views/sugerencia.do">Atracciones</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Parque/views/itinerarios/index.do">Mi itinerario</a>
-                        </li>
+                        <c:choose>
+                        	<c:when test="${usuario.esAdministrador()}">
+                        		<li class="nav-item"><a class="nav-link"
+								href="/Parque/views/itinerarios/admin.do">Itinerarios</a></li>
+                        	</c:when>
+						<c:otherwise>
+							<li class="nav-item"><a class="nav-link"
+								href="/Parque/views/itinerarios/index.do">Mi itinerario</a></li>
+						</c:otherwise>
+						</c:choose>
                         <c:if test="${usuario.esAdministrador()}">
 							<li class="nav-item">
 								<a class="nav-link" href="/Parque/views/usuarios/index.do">Usuarios</a>

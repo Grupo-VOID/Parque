@@ -22,6 +22,7 @@ public class Usuario {
 	protected Itinerario itinerarioUsuario;
 	private ArrayList<Atraccion> listaAtracciones = new ArrayList<Atraccion>();
 	private HashMap<String, String> errors;
+	private ArrayList<Adquirible> listaAdquiribles;
 
 	//Usuario nuevo
 	public Usuario(String username, String password, String nombre, TipoAtraccion tematica, double monedas, double tiempo, boolean admin) {
@@ -46,7 +47,7 @@ public class Usuario {
 		this.monedasDisponibles = monedas;
 		this.tiempoDisponible = tiempo;
 		this.admin = admin;
-		this.itinerarioUsuario = new Itinerario();
+		this.itinerarioUsuario = new Itinerario(); 
 	}
 	
 	public boolean chequearDinero(Adquirible adquirible) {
@@ -91,6 +92,13 @@ public class Usuario {
 
 		return listaAtracciones;
 	}
+	
+	public ArrayList<Adquirible> getListaAdquiribles() {
+		ItinerarioDAO itinerarioDAO = DAOFactory.getItinerarioDAO();
+		listaAdquiribles = (ArrayList<Adquirible>) itinerarioDAO.obtenerAdquiribles(this.id);
+		return listaAdquiribles;
+	}
+	
 
 	public void aceptarCompra(Adquirible sugerencia) {
 		this.monedasDisponibles -= sugerencia.getCosto();

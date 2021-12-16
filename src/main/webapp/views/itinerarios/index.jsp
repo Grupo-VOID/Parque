@@ -18,7 +18,8 @@
 			<c:when test="${adquribles != null}">
 				<h2>
 					<c:out value="${usuario.nombre}"></c:out>, estas son las compras que realizaste</h2>
-				<table class="table table-stripped table-hover">
+				<div class="table-responsive">
+					<table class="table table-stripped table-hover">
 					<thead>
 						<th>Atracci&oacute;n</th>
 						<th>Tem&aacute;tica</th>
@@ -28,7 +29,15 @@
 					<tbody>
 						<c:forEach items="${adquribles}" var="adq">
 							<tr>
-								<td><c:out value="${adq.nombre}"></c:out></td>
+								<td><c:out value="${adq.nombre}"></c:out>
+									<c:if test="${adq.esPromocion()}">
+									&nbsp;Incluye (					
+										<c:forEach items="${adq.atraccionesIncluidas()}" var="atr">
+											<c:out value="${atr.nombre}"></c:out>
+										</c:forEach>
+										.)
+									</c:if>
+								</td>
 								<td><c:out value="${adq.tematica}"></c:out></td>
 								<td><c:out value="${adq.tiempo}"></c:out></td>
 								<td><c:out value="${adq.costo}"></c:out></td>
@@ -36,6 +45,8 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				</div>
+				
 			</c:when>
 			
 			<c:otherwise>
