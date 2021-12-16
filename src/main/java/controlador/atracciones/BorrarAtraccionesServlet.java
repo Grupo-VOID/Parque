@@ -25,7 +25,7 @@ public class BorrarAtraccionesServlet extends HttpServlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		atraccionServicio.borrar(id);
 
-		resp.sendRedirect("/Parque/views/atracciones/index.do");
+		resp.sendRedirect("/Parque/views/sugerencia.do");
 	}
 
 
