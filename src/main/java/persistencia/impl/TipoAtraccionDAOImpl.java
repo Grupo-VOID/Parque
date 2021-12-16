@@ -54,6 +54,7 @@ public class TipoAtraccionDAOImpl implements TipoAtraccionDAO {
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, tipoAtraccion.getTematica());
+			statement.setInt(2, tipoAtraccion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;

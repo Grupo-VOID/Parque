@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import modelo.TipoAtraccion;
 import servicios.TipoAtraccionServicio;
 
-@WebServlet("/views/tematicas/editar.do")
+@WebServlet("/views/modificaciones/editar.do")
 public class EditarTipoAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7598291131560345626L;
@@ -30,18 +30,24 @@ public class EditarTipoAtraccionesServlet extends HttpServlet {
 		TipoAtraccion tipoAtraccion = tipoAtraccionServicio.buscar(id);
 		req.setAttribute("tematica", tipoAtraccion);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/tematicas/editar.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/modificaciones/editar.jsp");
 		dispatcher.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id = Integer.parseInt("id");
+		Integer id = Integer.parseInt(req.getParameter("id"));
 		String tematica = req.getParameter("tematica");
 
-		tipoAtraccionServicio.crear(id, tematica);
+		TipoAtraccion tipoAtraccion = tipoAtraccionServicio.update(id, tematica);
 
-		resp.sendRedirect("/Parque/views/atracciones/index.do");
+		if (tipoAtraccion.esValida()) {
+			resp.sendRedirect("/Parque/views/modificaciones/index.do");
+		} else {
+			req.setAttribute("tematica", tematica);
 
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/modificar/editar.jsp");
+			dispatcher.forward(req, resp);
+		}
 	}
 }

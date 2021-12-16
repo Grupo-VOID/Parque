@@ -67,7 +67,7 @@ public class PromocionAbsoluta extends Promocion {
 		return "ABSOLUTA";
 	}
 
-	public double getDescuento() {
+	public double getParametro() {
 		return descuento;
 	}
 
@@ -75,7 +75,7 @@ public class PromocionAbsoluta extends Promocion {
 		return id;
 	}
 
-	public void setDescuento(double descuento) {
+	public void setParametro(double descuento) {
 		this.descuento = descuento;
 	}
 

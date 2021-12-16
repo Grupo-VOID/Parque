@@ -56,7 +56,7 @@ public class EditarAtraccionesServlet extends HttpServlet {
 		Atraccion atraccion = atraccionServicio.update(id, nombre, tematica, costo, duracion, cupo, descripcion, imagen);
 
 		if (atraccion.esValida()) {
-			resp.sendRedirect("/Parque/views/atracciones/index.do");
+			resp.sendRedirect("/Parque/views/modificaciones/index.do");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 

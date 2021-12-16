@@ -62,7 +62,7 @@ public class PromocionServicio {
 			PromocionAbsoluta promocionAbsoluta = (PromocionAbsoluta) promocion;
 			promocionAbsoluta.setAtraccionesIncluidas(atraccion1, atraccion2);
 			promocionAbsoluta.setTematica(tematica);
-			promocionAbsoluta.setDescuento(parametro);
+			promocionAbsoluta.setParametro(parametro);
 			promocionAbsoluta.setDescripcion(descripcion);
 			promocionAbsoluta.setImagen(imagen);
 		}
@@ -70,7 +70,7 @@ public class PromocionServicio {
 			PromocionPorcentual promocionPorcentual = (PromocionPorcentual) promocion;
 			promocionPorcentual.setAtraccionesIncluidas(atraccion1, atraccion2);
 			promocionPorcentual.setTematica(tematica);
-			promocionPorcentual.setPorcentajeDescuento(parametro);
+			promocionPorcentual.setParametro(parametro);
 			promocionPorcentual.setDescripcion(descripcion);
 			promocionPorcentual.setImagen(imagen);
 		} else {
@@ -90,9 +90,9 @@ public class PromocionServicio {
 		return promocion;
 	}
 
-	public void borrar(Promocion promocion) {
+	public void borrar(int id) {
 		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
-		promocionDAO.eliminarPromocion(promocion);
+		promocionDAO.eliminarPromocion(promocionDAO.buscarPorId(id));
 	}
 
 	public Promocion buscar(Integer id) {

@@ -36,14 +36,14 @@ public class ComprarAtraccionesServlet extends HttpServlet {
 		req.getSession().setAttribute("usuario", usuario2);
 		
 		if (errores.isEmpty()) {
-			req.setAttribute("flash", "¡Gracias por comprar!");
+			req.setAttribute("flash", "ï¿½Gracias por comprar!");
 		} else {
 			req.setAttribute("errores", errores);
 			req.setAttribute("flash", "No ha podido realizarse la compra");
 		}
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/views/atracciones/index.do");
+				.getRequestDispatcher("/views/sugerencia/index.do");
 		dispatcher.forward(req, resp);
 	}
 }

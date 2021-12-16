@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import servicios.TipoAtraccionServicio;
 
-@WebServlet("/views/tematicas/crear.do")
+@WebServlet("/views/modificaciones/crear.do")
 public class CrearTipoAtraccionesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3455721046062278592L;
@@ -25,18 +25,17 @@ public class CrearTipoAtraccionesServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/tematicas/crear.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/modificaciones/crear.jsp");
 		dispatcher.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer id = Integer.parseInt("id");
-		String tematica = req.getParameter("tematica");
+		String tematica = req.getParameter("tematica").toUpperCase();
 
-		tipoAtraccionServicio.crear(id, tematica);
+		tipoAtraccionServicio.crear(tematica);
 
-		resp.sendRedirect("/Parque/views/atracciones/index.do");
+		resp.sendRedirect("/Parque/views/modificaciones/index.do");
 
 	}
 }

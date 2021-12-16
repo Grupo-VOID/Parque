@@ -87,22 +87,31 @@
                         	</div>
 	                        <div class="modal-footer">
 	                        	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-	                        	<c:if test="${usuario.esAdministrador()}">
-									<a href="/Parque/views/atracciones/editar.do?id=${catalogo.id}"
-										class="btn btn-light rounded-0" role="button"><i class="fas fa-pencil-alt"></i></a>
-									<a href="/Parque/views/atracciones/borrar.do?id=${catalogo.id}"
-										class="btn btn-danger rounded" role="button"><i class="fas fa-trash-alt"></i></a>
-								</c:if>
         						<c:choose>
-									<c:when
-										test="${usuario.chequearDinero(catalogo) && usuario.chequearTiempo(catalogo) && catalogo.estaDisponible()}">
-										<a href="/Parque/views/atracciones/comprar.do?id=${catalogo.id}"
-											class="btn btn-success rounded" role="button">Comprar</a>
+									<c:when	test="${catalogo.esPromocion()}">
+										<c:choose>
+											<c:when	test="${usuario.chequearDinero(catalogo) && usuario.chequearTiempo(catalogo) && catalogo.estaDisponible()}">
+												<a href="/Parque/views/promociones/comprar.do?id=${catalogo.id}"
+													class="btn btn-success rounded" role="button">Comprar</a>
+											</c:when>
+											<c:otherwise>
+												<a href="#" class="btn btn-secondary rounded disabled" role="button">No se puede comprar</a>
+											</c:otherwise>
+										</c:choose>
 									</c:when>
 									<c:otherwise>
-										<a href="#" class="btn btn-secondary rounded disabled" role="button">No se puede comprar</a>
+										<c:choose>
+											<c:when	test="${usuario.chequearDinero(catalogo) && usuario.chequearTiempo(catalogo) && catalogo.estaDisponible()}">
+												<a href="/Parque/views/atracciones/comprar.do?id=${catalogo.id}"
+													class="btn btn-success rounded" role="button">Comprar</a>
+											</c:when>
+											<c:otherwise>
+												<a href="#" class="btn btn-secondary rounded disabled" role="button">No se puede comprar</a>
+											</c:otherwise>
+										</c:choose>
 									</c:otherwise>
 								</c:choose>
+								
                     	    </div>
                 	      </div>
             	        </div>
