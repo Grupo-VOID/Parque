@@ -36,7 +36,16 @@
 								<td><c:out value="${user.monedasDisponibles}"></c:out></td>
 								<td><c:out value="${user.tiempoDisponible}"></c:out></td>
 								<td><c:out value="${user.tematica}"></c:out></td>
-								<td><c:out value="${user.esAdministrador()}"></c:out></td>
+								<td>
+									<c:choose>
+		            					<c:when test="${user.esAdministrador() != true}">
+		            						Visitante
+		            					</c:when>
+		            					<c:otherwise>
+		            						Administrador
+		            					</c:otherwise>
+		            				</c:choose>
+								</td>
 							</tr>
 							
 							<c:choose>
