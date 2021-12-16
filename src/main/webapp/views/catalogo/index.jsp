@@ -32,16 +32,6 @@
         <h1>Promociones y Atracciones</h1>
         <hr>
         <div class="container">
-        	<c:if test="${usuario.esAdministrador()}">
-	        	<div class="mb-3">
-		            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
-		              Promocion
-		            </a>
-		            <a href="/Parque/views/atracciones/crear.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
-		              Atraccion
-		            </a>
-	          	</div>
-	        </c:if>
         	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" style="text-align:center">
         	   <c:forEach items="${catalogo}" var="catalogo">
         	      <div class="col">
@@ -55,11 +45,11 @@
         	          </div>
         	          <div class="card-footer" style="text-align: right">
         	          	
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#catalogo<c:out value="${catalogo.id}"></c:out>">
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#catalogo<c:out value="${catalogo.esPromocion()}"></c:out><c:out value="${catalogo.id}"></c:out>">
 						  	Ver detalles
 						</button> 
         	          </div>
-    	              <div class="modal fade bd-example-modal-lg" id="catalogo<c:out value="${catalogo.id}"></c:out>" tabindex="-1" aria-labelledby="exampleModalLabel">
+    	              <div class="modal fade bd-example-modal-lg" id="catalogo<c:out value="${catalogo.esPromocion()}"></c:out><c:out value="${catalogo.id}"></c:out>" tabindex="-1" aria-labelledby="exampleModalLabel">
 	                    <div class="modal-dialog modal-lg" role="document">
                 	      <div class="modal-content">
             	            <div class="modal-header">
