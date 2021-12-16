@@ -70,7 +70,7 @@ public class PromocionServicio {
 			PromocionPorcentual promocionPorcentual = (PromocionPorcentual) promocion;
 			promocionPorcentual.setAtraccionesIncluidas(atraccion1, atraccion2);
 			promocionPorcentual.setTematica(tematica);
-			promocionPorcentual.setPorcentajeDescuento(parametro);
+			promocionPorcentual.setParametro(parametro);
 			promocionPorcentual.setDescripcion(descripcion);
 			promocionPorcentual.setImagen(imagen);
 		} else {

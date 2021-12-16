@@ -79,7 +79,7 @@ public class PromocionPorcentual extends Promocion {
 		return id;
 	}
 
-	public void setPorcentajeDescuento(double porcentajeDescuento) {
+	public void setParametro(double porcentajeDescuento) {
 		this.porcentajeDescuento = porcentajeDescuento;
 	}
 

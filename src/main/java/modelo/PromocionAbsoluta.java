@@ -67,7 +67,7 @@ public class PromocionAbsoluta extends Promocion {
 		return "ABSOLUTA";
 	}
 
-	public double getDescuento() {
+	public double getParametro() {
 		return descuento;
 	}
 
