@@ -5,6 +5,25 @@
 
     <head>
       <jsp:include page="/partials/head.jsp"></jsp:include>
+      
+      <script type="text/javascript">
+	      var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+	      var alertTrigger = document.getElementById('liveAlertBtn')
+	
+	      function alert(message, type) {
+	        var wrapper = document.createElement('div')
+	        wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+	
+	        alertPlaceholder.append(wrapper)
+	      }
+	
+	      if (alertTrigger) {
+	        alertTrigger.addEventListener('click', function () {
+	          alert('Nice, you triggered this alert message!', 'success')
+	        })
+	      }
+      </script>
+      
     </head>
 
     <body>
@@ -110,8 +129,9 @@
         
         <div class="container" style="padding: 1cm;">
         	<div class="mb-3">
-		    	<a href="/Parque/views/promociones/crear.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva Atraccion </a>
+		    	<a href="/Parque/views/promociones/crear.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva Promocion </a>
 	        </div>
+	        <div id="liveAlertPlaceholder"></div>
         	<table class="table table-bordered table-hover" style="text-align: justify;">
 	            <thead>
 	                <tr style="text-align: center;">
@@ -148,11 +168,30 @@
 	            			<td><c:out value="${promocion.descripcion}"></c:out></td>
 	            			<td><c:out value="${promocion.imagen}"></c:out></td>
 	            			<td>
-	            				<a href="/Parque/views/promociones/editar.do?id=${promocion.id}"
-									class="btn btn-light rounded-0" role="button"><i class="fas fa-pencil-alt"></i></a>
+	            				<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								  <i class="fas fa-pencil-alt"></i>
+								</button>
+	            				<!--  <a href="/Parque/views/promociones/editar.do?id=${promocion.id}"
+									class="btn btn-light rounded-0" role="button"><i class="fas fa-pencil-alt"></i></a>-->
 								<a href="/Parque/views/promociones/borrar.do?id=${promocion.id}"
 									class="btn btn-danger rounded" role="button"><i class="fas fa-trash-alt"></i></a></td>
 	            		</tr>
+	            		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="exampleModalLabel">Atención</h5>
+							        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							      </div>
+							      <div class="modal-body" style="text-align:center;">
+							        <h1> Función en desarrollo </h1>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
 	            	</c:forEach>
 	            </tbody>
 	        </table>

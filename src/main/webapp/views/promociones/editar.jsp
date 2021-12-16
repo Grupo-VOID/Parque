@@ -20,11 +20,14 @@
 		  
 		  	<form action="/Parque/views/atracciones/editar.do" method="post">
 				<input type="hidden" name="id" value="${promocion.id}">
-				<input type="hidden" name="tipoPromocion" value="${promocion.tipoPromocion}">
+				<input type="hidden" name="tipoPromocion" value="${promocion.getTipoPromocion()}">
 				<input type="hidden" name="tematica" value="${promocion.tematica}">
+				<c:forEach items="${promocion.atraccionesIncluidas()}" var="promocionInc"> 
+	            	<td><c:out value="${promocionInc.nombre}"></c:out></td>
+	            	<input type="hidden" name="atraccion1" value="${promocion.atraccion1}">
+	            </c:forEach>
 				<input type="hidden" name="atraccion1" value="${promocion.atraccion1}">
 				<input type="hidden" name="atraccion2" value="${promocion.atraccion2}">
-				<input type="hidden" name="parametro" value="${promocion.atraccion2}">
 				<jsp:include page="/views/atracciones/formulario.jsp"></jsp:include>
 			</form>
 		  </div>	

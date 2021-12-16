@@ -1,5 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
   <div class="mb-3">
+    <label for="parametro" class="form-label">Parametro</label>
+    <input type="text" class="form-control" id="parametro" aria-describedby="parametro" name="parametro" required value="${catalogo.imagen}">
+  </div>
+  <div class="mb-3">
     <label for="descripcion" class="form-label">Descripción</label>
     <input type="text" class="form-control" id="descripcion" aria-describedby="descripcion" name="descripcion" required value="${catago.descripcion}">
   </div>
@@ -16,3 +20,12 @@
 	<a onclick="window.history.back();" class="btn btn-secondary"
 		role="button">Cancelar</a>
   </div>
+  
+  <th scope="col">Tipo de Promocion</th>
+	                    <th scope="col">Tematica</th>
+	                    <th scope="col">Atraccion 1</th>
+	                    <th scope="col">atraccion2</th>
+	                    <th scope="col">atraccionGratis</th>
+	                    <th scope="col">parametro</th>
+	                    <th scope="col">Descripcion</th>
+	                    <th scope="col">Imagen</th>

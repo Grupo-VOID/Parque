@@ -67,7 +67,7 @@ public class EditarPromocionesServlet extends HttpServlet {
 				descripcion, imagen);
 
 		if (promocion.esValida()) {
-			resp.sendRedirect("/Parque/views/atracciones/index.do");
+			resp.sendRedirect("/Parque/views/modificaciones/index.do");
 		} else {
 			req.setAttribute("promocion", promocion);
 
