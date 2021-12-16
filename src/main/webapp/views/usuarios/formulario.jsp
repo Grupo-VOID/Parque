@@ -31,11 +31,13 @@
     <label for="tiempo" class='col-form-label ${usuarioTemp.errors.get("tiempoDisponible") != null ? "is-invalid" : "" }'>Tiempo</label>
     <input type="number" class="form-control" id="tiempo" aria-describedby="tiempo" name="tiempoDisponilbe" required value="${usuarioTemp.tiempoDisponible}">
   </div>
-  <div class="mb-3">
-    <label for="admin" class='col-form-label ${usuarioTemp.errors.get("esAdministrador()") != null ? "is-invalid" : "" }'>Administrador</label>
-    <input type="text" class="form-control" id="admin" aria-describedby="admin" name="admin" required value="${usuarioTemp.esAdministrador()}">
-  </div>
   
+  <div class="form-check form-switch">
+  	<label class="form-check-label" for="admin">Administrador</label>
+	<input class="form-check-input" type="checkbox" role="switch" id="admin" name="admin" value="true"
+	<c:if test="${usuarioTemp.esAdministrador() == true}">checked</c:if>	>
+  </div>
+
   <div style="padding-top:1cm">
 	<button type="submit" class="btn btn-primary">Guardar</button>
 	<a onclick="window.history.back();" class="btn btn-secondary"

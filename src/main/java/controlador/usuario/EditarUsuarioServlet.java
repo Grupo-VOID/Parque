@@ -39,6 +39,7 @@ public class EditarUsuarioServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(req.getParameter("id"));
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String nombre = req.getParameter("nombre");
@@ -50,7 +51,7 @@ public class EditarUsuarioServlet extends HttpServlet {
 		TipoAtraccionDAO tipoAtraccionDAO = DAOFactory.getTipoAtraccionDAO();
 		TipoAtraccion tematica = tipoAtraccionDAO.encontrarTipoAtraccion(tipoAtraccion);
 		
-		Usuario usuario = usuarioServicio.crear(username, password, nombre, tematica, monedas, tiempo, admin);
+		Usuario usuario = usuarioServicio.update(id,username, password, nombre, tematica, monedas, tiempo, admin);
 
 		if (usuario.esValido()) {
 			req.setAttribute("flash", "Usuario editado con exito");

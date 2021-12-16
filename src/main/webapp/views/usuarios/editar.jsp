@@ -19,7 +19,7 @@
 			</c:if>
 		  
 		  	<form action="/Parque/views/usuarios/editar.do" method="post">
-				<input type="hidden" name="id" value="${usuario.id}">
+				<input type="hidden" name="id" value="${usuarioTemp.id}">
 				<jsp:include page="/views/usuarios/formulario.jsp"></jsp:include>
 			</form>
 		  </div>	

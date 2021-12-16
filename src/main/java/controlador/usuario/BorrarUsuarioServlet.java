@@ -25,7 +25,7 @@ public class BorrarUsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		usuarioServicio.borrar(id);
-
-		resp.sendRedirect("/Parque/views/atracciones/index.do");
+		req.setAttribute("flash", "Se ha eliminado el usuario correctamente");
+		resp.sendRedirect("/Parque/views/usuarios/index.do");
 	}
 }
