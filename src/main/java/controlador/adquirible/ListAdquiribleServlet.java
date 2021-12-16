@@ -34,7 +34,7 @@ public class ListAdquiribleServlet extends HttpServlet implements Servlet {
 		
 		req.setAttribute("catalogo", catalogo);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/sugerencia.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/catalogo/index.jsp");
 		dispatcher.forward(req, resp);
 	}
 
