@@ -131,7 +131,6 @@
         	<div class="mb-3">
 		    	<a href="/Parque/views/promociones/crear.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva Promocion </a>
 	        </div>
-	        <div id="liveAlertPlaceholder"></div>
         	<table class="table table-bordered table-hover" style="text-align: justify;">
 	            <thead>
 	                <tr style="text-align: center;">
