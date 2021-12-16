@@ -48,7 +48,7 @@ public class CrearAtraccionesServlet extends HttpServlet {
 
 		Atraccion atraccion = atraccionServicio.crear(nombre, tematica, costo, duracion, cupo, descripcion, imagen);
 		if (atraccion.esValida()) {
-			resp.sendRedirect("/Parque/views/sugerencia.do");
+			resp.sendRedirect("/Parque/views/modificaciones/index.do");
 		} else {
 			req.setAttribute("atraccion", atraccion);
 

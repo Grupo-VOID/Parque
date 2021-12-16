@@ -32,16 +32,6 @@
         <h1>Promociones y Atracciones</h1>
         <hr>
         <div class="container">
-        	<c:if test="${usuario.esAdministrador()}">
-	        	<div class="mb-3">
-		            <a href="/Parque/views/create.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
-		              Promocion
-		            </a>
-		            <a href="/Parque/views/atracciones/crear.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nueva
-		              Atraccion
-		            </a>
-	          	</div>
-	        </c:if>
         	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" style="text-align:center">
         	   <c:forEach items="${atraccion}" var="atraccion">
         	      <div class="col">
@@ -87,12 +77,6 @@
                         	</div>
 	                        <div class="modal-footer">
 	                        	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-	                        	<c:if test="${usuario.esAdministrador()}">
-									<a href="/Parque/views/atracciones/editar.do?id=${atraccion.id}"
-										class="btn btn-light rounded-0" role="button"><i class="fas fa-pencil-alt"></i></a>
-									<a href="/Parque/views/atracciones/borrar.do?id=${atraccion.id}"
-										class="btn btn-danger rounded" role="button"><i class="fas fa-trash-alt"></i></a>
-								</c:if>
         						<c:choose>
 									<c:when
 										test="${usuario.chequearDinero(atraccion) && usuario.chequearTiempo(atraccion) && atraccion.tieneCupo(1)}">
