@@ -14,18 +14,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/Parque/views/sugerencia.do">Atracciones</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Parque/views/itinerarios/index.do">Mi itinerario</a>
-                        </li>
                         <c:if test="${usuario.esAdministrador()}">
 							<li class="nav-item">
 								<a class="nav-link" href="/Parque/views/usuarios/index.do">Usuarios</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/Parque/views/modificaciones/index.do">Modificaciones</a>
 							</li>
 						</c:if>
                     </ul>
                     <ul class="navbar-nav">
                         <c:choose>
                         <c:when test="${usuario != null}">
+                        	<li class="nav-item">
+	                            <a class="nav-link" href="/Parque/views/itinerarios/index.do">Mi itinerario</a>
+	                        </li>
                         	<li class="nav-item dropdown">
                         		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           							<c:out value="${usuario.nombre}"></c:out>

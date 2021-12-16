@@ -1,8 +1,13 @@
 package modelo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TipoAtraccion {
 	int id;
 	String tematica;
+	
+	private Map<String, String> errores;
 	
 	public TipoAtraccion(int id, String tematica) {
 		this.id = id;
@@ -53,6 +58,16 @@ public class TipoAtraccion {
 	public String toString() {
 		return tematica;
 	}
-
 	
+	public boolean esValida() {
+		validate();
+		return errores.isEmpty();
+	}
+	
+	public void validate() {
+		errores = new HashMap<String, String>();
+
+		if (tematica == null || tematica.equals(""))
+			errores.put("costo", "Debe ser positivo");
+	}	
 }

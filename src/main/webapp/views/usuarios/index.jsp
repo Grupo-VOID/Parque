@@ -31,7 +31,7 @@
         <hr>
         <h1>Usuarios</h1>
         <hr>
-        <div class="container" style="padding: 2cm;">
+        <div class="container" style="padding: 1cm;">
         	<div class="mb-3">
 		    	<a href="/Parque/views/usuarios/crear.do" class="btn btn-primary" role="button"> <i class="bi bi-plus-lg"></i> Nuevo Usuario </a>
 	        </div>
@@ -77,6 +77,7 @@
 	            	</c:forEach>
 	            </tbody>
 	        </table>
+        </div>
         </div>
       <footer class="container secciones">
         <jsp:include page="/partials/footer.jsp"></jsp:include>
