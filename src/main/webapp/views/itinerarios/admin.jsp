@@ -25,7 +25,7 @@
 						<th>Dinero disponible</th>
 						<th>Tiempo disponible</th>
 						<th>Tem&aacute;tica</th>
-						<th>Admin</th>
+						<th>Rol</th>
 					</thead>
 					<tbody>
 						

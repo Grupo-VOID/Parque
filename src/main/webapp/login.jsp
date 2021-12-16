@@ -50,8 +50,8 @@
                     <a class="forgot_password" href="#">No recuerdo mi contraseña</a>
                 </div>
                 <div class="login_container">
-                    <a href="visitors.jsp">Entrar como visitante</a>
-                    <p class="new_user">¿No tienes una cuenta? <a href="views/usuarios/registro.jsp">Registrate</a>
+                    <a href="index.jsp">Entrar como visitante</a>
+                    <p class="new_user">¿No tienes una cuenta? <a href="mailto:nohaytal@webmaster.com">Contactate con el webmaster</a>
                     </p>
                 </div>
 
