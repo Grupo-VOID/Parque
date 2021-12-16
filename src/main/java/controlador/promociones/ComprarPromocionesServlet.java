@@ -29,14 +29,14 @@ public class ComprarPromocionesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		Integer promocionId = Integer.parseInt(req.getParameter("id"));
-		Usuario usuario = (Usuario) req.getSession().getAttribute("username");
+		Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
 		Map<String, String> errores = comprarPromocionesServicio.comprar(usuario.getId(), promocionId);
 
 		Usuario usuario2 = DAOFactory.getUsuarioDAO().buscarPorId(usuario.getId());
 		req.getSession().setAttribute("usuario", usuario2);
 
 		if (errores.isEmpty()) {
-			req.setAttribute("flash", "¡Gracias por comprar!");
+			req.setAttribute("flash", "ï¿½Gracias por comprar!");
 		} else {
 			req.setAttribute("errores", errores);
 			req.setAttribute("flash", "No ha podido realizarse la compra");
