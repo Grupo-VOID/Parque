@@ -7,8 +7,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import persistencia.PromocionDAO;
-import persistencia.comunes.DAOFactory;
 import servicios.PromocionServicio;
 
 @WebServlet("/views/promociones/borrar.do")
@@ -26,13 +24,9 @@ public class BorrarPromocionesServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
+		promocionServicio.borrar(id);
 
-		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
-		promocionDAO.buscarPorId(id);
-
-		promocionServicio.borrar(promocionDAO.buscarPorId(id));
-
-		resp.sendRedirect("/Parque/views/atracciones/index.do");
+		resp.sendRedirect("/Parque/views/modificaciones/index.do");
 	}
 
 }
