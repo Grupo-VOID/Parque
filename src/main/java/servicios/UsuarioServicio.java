@@ -14,7 +14,7 @@ public class UsuarioServicio {
 	}
 
 	public Usuario crear(String username, String password, String nombre, TipoAtraccion tematica, double monedas, double tiempo, boolean admin) {
-		Usuario usuario = new Usuario(0, username, password, nombre, tematica, monedas, tiempo, false);
+		Usuario usuario = new Usuario(0, username, password, nombre, tematica, monedas, tiempo, admin);
 		usuario.setPassword(password);
 
 		if (usuario.esValido()) {
